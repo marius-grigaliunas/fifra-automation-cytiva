@@ -178,9 +178,3 @@ fifra-automation-cytiva/
 ├── README.md
 └── .env.example        # Template for credentials
 ```
-
-## Next Steps
-
-1. Investigate enlabel DOM structure to understand how labels are identified
-2. Test label text extraction to determine if OCR is needed
-3. Set up project structure and dependencies

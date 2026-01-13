@@ -6,12 +6,10 @@ This document outlines all items that should be investigated and documented at w
 
 ### TSV File Analysis
 
-- [ ] **Obtain sample TSV files** (at least 2-3 different files if possible)
-- [ ] **Document exact column headers** (take screenshots or copy exact headers)
-- [ ] **Identify column names** for:
-  - [ ] Item numbers (exact column name, e.g., "Item", "Item Number", "Part Number")
-  - [ ] Lot numbers (exact column name, e.g., "Lot", "Lot Number", "Batch")
-  - [ ] Any other relevant identifiers (production numbers, order numbers, etc.)
+- [x] **Obtain sample TSV files** (at least 2-3 different files if possible)
+- [x] **Identify column names** for:
+  - [x] Item numbers  
+  - [x] Lot numbers 
 - [x] **Check data format**:
   - [x] Are item numbers alphanumeric? - Yes
   - [x] Are lot numbers consistent format? - No lot number formats vary.
@@ -21,13 +19,10 @@ This document outlines all items that should be investigated and documented at w
   - [x] Multiple lots per item - Yes, one item can have multiple lots
   - [x] Special characters in data - No special characters.
   - [x] Date formats if present - No need for date formats
-- [ ] **File encoding** (UTF-8, Windows-1252, etc.)
-- [ ] **Typical file size** (to estimate processing time)
 
 ### Invoice PDF Structure
 
-- [ ] **Obtain sample invoice PDF files** (2-3 examples)
-- [ ] **Document invoice structure**:
+- [x] **Document invoice structure**:
   - [x] Page count (single page or multi-page?) - Multi page
   - [x] Layout/orientation (portrait/landscape) - portrait
   - [x] Where should labels be inserted? (before invoice, after, specific page?) - after the invoice
@@ -36,22 +31,22 @@ This document outlines all items that should be investigated and documented at w
 
 ### Authentication & Access
 
-- [ ] **Login process documentation**:
-  - [ ] URL of login page
-  - [ ] Login form field IDs/names/selectors
-  - [ ] Submit button selector
-  - [ ] Any CAPTCHA or 2FA? (critical!)
-  - [ ] Session timeout duration
-  - [ ] Any IP restrictions or VPN requirements?
-- [ ] **Test existing login script** (if available):
-  - [ ] Does it still work?
-  - [ ] Any changes to the login flow?
-  - [ ] Save/note any selector changes
+- [x] **Login process documentation**:
+  - [x] URL of login page - https://pallprod.enlabel.com/Login.aspx?ReturnUrl=%2fDefault.aspx
+  - [x] Login form field IDs/names/selectors username ID - ctl00_ContentPlaceHolder1_txtUserName | password field ID - ctl00_ContentPlaceHolder1_txtPassword
+  - [x] Submit button selector - ID - ctl00_ContentPlaceHolder1_btnLogin
+  - [x] Session timeout duration - not clear at least 15 minutes
+  - [x] Any IP restrictions or VPN requirements? needs to be cytiva network, no details on this one, eitherway this will only run from a cytiva computer.
+- [x] **Test existing login script** (if available):
+  - [x] Does it still work? yes
+  - [x] Any changes to the login flow? no
+  - [x] Save/note any selector changes no
 
 ### Navigation & Search Flow
 
 - [ ] **Production Number Search**:
-  - [ ] Exact URL or navigation path to search page
+  - [ ] Exact URL or navigation path to search page. https://pallprod.enlabel.com/Collaboration/ManageDatabases/ManageDatabases.aspx -> #ctl00_MainContent_gridTables_ctl00__1 > td:nth-child(1) > a -> #ctl00_MainContent_gridDbRecords_ctl00_ctl02_ctl00_gridCommand > table > tbody > tr > td:nth-child(2) > a -> #ctl00_MainContent_FilterControl_ddlOperand1 -> #ctl00_MainContent_FilterControl_ddlOperand1 > option:nth-child(2) -> #ctl00_MainContent_FilterControl_ddlColumn1 > option:nth-child(9)
+  
   - [ ] Search form field selectors
   - [ ] Search button selector
   - [ ] Search results page structure

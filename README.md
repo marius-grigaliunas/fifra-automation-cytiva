@@ -33,12 +33,15 @@ flowchart TD
 
 - Parse TSV file from Oracle ERP
 - Extract item numbers and lot numbers
+- Remove any duplicates, same item can have different lot numbers
+- Extract shipment trip identifier (for folder organization)
+- Extract shipment Tracking identifier
 - Validate data structure
 - Handle missing/invalid entries
 
 ### 2. Enlabel Automation (`src/enlabel_automation.py`)
 
-- Selenium WebDriver setup with Firefox
+- Selenium WebDriver setup with Microsoft edge
 - Login automation (already tested)
 - Production number search automation
 - Label search and identification
@@ -50,6 +53,7 @@ flowchart TD
 
 - Configure Firefox download preferences (auto-save to predefined folder)
 - Alternative: Use `pyautogui` for Windows dialog automation if browser config doesn't work
+- Download labels to trip-specific output folder with the name of (item)_(lot number)
 - Track downloaded files
 - Handle file naming conflicts
 
@@ -65,6 +69,8 @@ flowchart TD
 
 - Combine all verified labels into single PDF
 - Merge with shipping invoice PDF (separate file)
+- Save combined PDF to trip-specific output folder with the specified name of Trip (trip number)_Tracking (tracking number)
+- Copy invoice PDF to trip-specific output folder
 - Maintain proper order
 - Handle page orientation/sizing
 
@@ -80,6 +86,7 @@ flowchart TD
 ### 7. Main Orchestrator (`src/main.py`)
 
 - Coordinate all components
+- Create trip-specific output folder structure
 - Error handling and logging
 - Progress tracking
 - User-friendly output
@@ -151,10 +158,12 @@ flowchart TD
 4. **Variable wait times**: Use Selenium explicit waits (WebDriverWait) with configurable timeouts
 5. **New browser windows**: Use window handles to switch between windows
 6. **Production number storage**: CSV file for easy verification and debugging
+7. **Lots in different formats**: lot number that are 9 digit numbers are already production numbers, no need to search for them
+8. **Trip identification**: Extract trip identifier from TSV file or invoice to create organized output folders
 
 ## File Structure
 
-```javascript
+```python
 fifra-automation-cytiva/
 ├── src/
 │   ├── __init__.py
@@ -169,12 +178,21 @@ fifra-automation-cytiva/
 │   └── config.yaml
 ├── data/
 │   ├── input/          # TSV files from Oracle ERP
-│   ├── invoices/       # Shipping invoice PDFs
-│   ├── labels/         # Downloaded labels
-│   ├── output/         # Combined PDFs
 │   └── verification/   # Production numbers CSV
+├── output/             # Trip-based output folders
+│   └── [TRIP_NAME]/    # Each shipment trip gets its own folder
+│       ├── labels/     # Downloaded labels for this trip
+│       ├── invoice.pdf # Copy of the invoice PDF
+│       └── Trip (trip number)_Tracking (tracking number).pdf # Combined labels + invoice PDF
 ├── logs/
 ├── requirements.txt
 ├── README.md
 └── .env.example        # Template for credentials
 ```
+
+### Output Organization
+
+- Each shipment trip will have its own folder in the `output/` directory
+- The folder name will be based on the trip identifier extracted from the TSV file or invoice
+- All files for a trip (downloaded labels, invoice copy, combined PDF) are stored together in the trip folder
+- This organization makes it easy to locate all files related to a specific shipment

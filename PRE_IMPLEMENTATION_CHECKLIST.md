@@ -47,16 +47,12 @@ This document outlines all items that should be investigated and documented at w
 - [ ] **Production Number Search**:
   - [ ] Exact URL or navigation path to search page. https://pallprod.enlabel.com/Collaboration/ManageDatabases/ManageDatabases.aspx -> #ctl00_MainContent_gridTables_ctl00__1 > td:nth-child(1) > a -> #ctl00_MainContent_gridDbRecords_ctl00_ctl02_ctl00_gridCommand > table > tbody > tr > td:nth-child(2) > a -> #ctl00_MainContent_FilterControl_ddlOperand1 -> #ctl00_MainContent_FilterControl_ddlOperand1 > option:nth-child(2) -> #ctl00_MainContent_FilterControl_ddlColumn1 > option:nth-child(9)
   
-  - [ ] Search form field selectors
-  - [ ] Search button selector
-  - [ ] Search results page structure
-  - [ ] How are results displayed? (table, list, cards?)
-  - [ ] Selector for production number in results
-  - [ ] Multiple results handling (first match? filter by item/lot?)
 - [ ] **Label Search**:
-  - [ ] URL or navigation path from production number to labels
-  - [ ] How to access labels? (click link, button, dropdown?)
-  - [ ] Selectors for label list/view
+  - [ ] Label search URL - https://pallprod.enlabel.com/ProductionPrint/PrintTypes/PrintByOrder/PrintStart.aspx?ServiceId=10
+  - [ ] How to access labels? - after navigating to the label search URL, must input production order number to production order number input field, click next and observe the results.
+    Full search flow -> //*[@id="ctl00_MainContent__txtORDER_NUMBER"] -> enter the production order number -> click next (//*[@id="btnNext2"]) -> at this point there is a table element with multiple rows, first row is the header, after that multiple results, need to find the label that fits the requirements, must have Item number, lot number and EPA number.
+    table row xpaths -> 1st row - //*[@id="ctl00_MainContent_gridLabels_ctl00__0"] -> 2nd row - //*[@id="ctl00_MainContent_gridLabels_ctl00__1"] -> 3rd row - //*[@id="ctl00_MainContent_gridLabels_ctl00__2"] and so on. as a human The only way to check if what label is it, must preview it and visually confirm if it meets all the requirements - preview button of the first row - //*[@id="ctl00_MainContent_gridLabels_ctl00_ctl04_btnPreview"] -> preview button of the 2nd row - //*[@id="ctl00_MainContent_gridLabels_ctl00_ctl06_btnPreview"] -> preview button 3rd row - //*[@id="ctl00_MainContent_gridLabels_ctl00_ctl08_btnPreview"]
+    Here the flow brakes, the preview must be opened from IE mode on microsoft edge, activex is needed to load the label, need to test at work if this is the case. 
 - [ ] **Label Identification** (CRITICAL):
   - [ ] Take screenshots of label list/page
   - [ ] How are labels displayed? (list, table, thumbnails?)
@@ -79,14 +75,72 @@ This document outlines all items that should be investigated and documented at w
   - [ ] Does clicking labels open new windows/tabs?
   - [ ] Test manually: click a label, see what happens
   - [ ] Document window behavior
+  - [ ] Create test script to:
+Manually trigger a label preview
+Automate clicking print button
+Automate printer selection
+Automate file save
+Integrate into existing EnlabelAutomation class
+Add error handling and retry logic
+Test with multiple labels
 
 ### Download Process
 - [ ] **Download mechanism**:
-  - [ ] How are labels downloaded? (download link, download button, context menu?)
+  - [ ] How are labels downloaded? Label data is sent from the server to the client, together with a label template, on the client the label gets constructed and a preview is shown with activex, from the preview window there is a a print button, where the printer gets selected, as we only need the digital copy, Microsoft print to pdf is selected. After that windows file selector dialog pops up to select the saving location and name of the file. after pressing next file is saved.
   - [ ] Selector for download element
   - [ ] Does download start automatically or require confirmation?
   - [ ] File naming convention (what name does the downloaded file have?)
   - [ ] File format (PDF? Always PDF or variable?)
+- [ ] **ActiveX Preview Window** (CRITICAL for automation):
+  - [ ] Does preview open in new window or same tab?
+  - [ ] Window title of preview window (exact text or pattern)
+  - [ ] Window class name (use Spy++ or similar tool to inspect)
+  - [ ] Screenshot of preview window with print button visible
+  - [ ] Print button location:
+    - [ ] Is print button always in same position? (relative to window)
+    - [ ] Print button text/label (exact text)
+    - [ ] Print button appearance (icon, text, color, size)
+    - [ ] Can print button be found by image recognition? (take screenshot of button)
+  - [ ] How long does it take for preview window to fully load?
+  - [ ] Any loading indicators in preview window?
+  - [ ] Does preview window have a specific handle/identifier?
+  - [ ] Test: Can preview window be found using pywinauto by title/class?
+- [ ] **Printer Selection Dialog** (CRITICAL for automation):
+  - [ ] Dialog title (exact text, e.g., "Print", "Select Printer", etc.)
+  - [ ] Dialog class name (use Spy++ or similar tool)
+  - [ ] Screenshot of printer selection dialog
+  - [ ] How is "Microsoft Print to PDF" displayed?
+    - [ ] In a dropdown list?
+    - [ ] In a list box?
+    - [ ] Exact text shown (may include version numbers)
+  - [ ] How to select "Microsoft Print to PDF"?
+    - [ ] Click on it?
+    - [ ] Type to search/filter?
+    - [ ] Arrow keys to navigate?
+  - [ ] Button labels (OK, Print, Next, etc.) - exact text
+  - [ ] Button positions or IDs
+  - [ ] Does dialog appear immediately after clicking print, or is there a delay?
+  - [ ] Test: Can dialog be found using pywinauto?
+  - [ ] Test: Can "Microsoft Print to PDF" be selected programmatically?
+- [ ] **File Save Dialog** (CRITICAL for automation):
+  - [ ] Dialog title (exact text, e.g., "Save Print Output As", "Save As", etc.)
+  - [ ] Dialog class name (use Spy++ or similar tool)
+  - [ ] Screenshot of file save dialog
+  - [ ] File name input field:
+    - [ ] Field label/ID
+    - [ ] Default filename (if any)
+    - [ ] Can field be accessed by pywinauto?
+  - [ ] Save location field:
+    - [ ] Default save location
+    - [ ] Can path be typed directly?
+    - [ ] Or must navigate through folder browser?
+  - [ ] Save button:
+    - [ ] Button text (exact: "Save", "OK", "Next", etc.)
+    - [ ] Button position/ID
+  - [ ] Cancel button (if needed for error handling)
+  - [ ] Does dialog appear immediately after selecting printer, or is there a delay?
+  - [ ] Test: Can dialog be found and controlled using pywinauto?
+  - [ ] Test: Can file path be entered programmatically?
 - [ ] **Browser download behavior**:
   - [ ] Test with Firefox: does it show download dialog?
   - [ ] Default download location
@@ -94,6 +148,10 @@ This document outlines all items that should be investigated and documented at w
 - [ ] **Download timing**:
   - [ ] How long does download take? (network-dependent, but get ballpark)
   - [ ] Any loading indicators to wait for?
+  - [ ] Time from clicking preview to preview window appearing
+  - [ ] Time from clicking print to printer dialog appearing
+  - [ ] Time from selecting printer to save dialog appearing
+  - [ ] Time from clicking save to file actually being saved
 
 ### Performance & Timing
 - [ ] **Page load times** (rough estimates):
@@ -237,12 +295,28 @@ This document outlines all items that should be investigated and documented at w
   - [ ] Firefox version at work (need compatible geckodriver)
   - [ ] Test if Selenium can control Firefox (basic test script)
   - [ ] Any browser extensions that interfere?
+- [ ] **Edge IE Mode** (CRITICAL for ActiveX):
+  - [ ] Is Edge IE mode required for ActiveX to work?
+  - [ ] How to enable IE mode in Edge?
+  - [ ] Can Selenium control Edge in IE mode?
+  - [ ] Test: Open label preview in Edge IE mode manually
+  - [ ] Test: Does ActiveX load correctly in Edge IE mode?
+  - [ ] Document IE mode configuration steps
+  - [ ] Can IE mode be set programmatically via Selenium?
+  - [ ] Any compatibility issues with Selenium + Edge IE mode?
 - [ ] **Headless mode**:
   - [ ] Can run headless? (may be required if no display)
   - [ ] Does headless work with downloads?
+  - [ ] **IMPORTANT**: Headless mode likely won't work with ActiveX/Windows dialogs - document this limitation
 - [ ] **Download configuration**:
   - [ ] Test Firefox download preferences (auto-download to folder)
   - [ ] Document working configuration
+- [ ] **Multiple Windows Management**:
+  - [ ] When preview opens, does it open in new window or tab?
+  - [ ] How many windows are open during label printing process?
+  - [ ] Can Selenium track all open windows?
+  - [ ] Test: Switch between browser window and preview window using Selenium
+  - [ ] Test: Can Selenium detect when preview window closes?
 
 ### PDF Processing
 - [ ] **PDF library capabilities**:
@@ -253,6 +327,30 @@ This document outlines all items that should be investigated and documented at w
 - [ ] **OCR setup** (if needed):
   - [ ] Can Tesseract be installed at work?
   - [ ] Test OCR accuracy on sample labels
+
+### Windows Automation Tools
+- [ ] **pywinauto installation & testing**:
+  - [ ] Can pywinauto be installed? (`pip install pywinauto`)
+  - [ ] Test basic pywinauto functionality (find window, click button)
+  - [ ] Test finding preview window by title/class
+  - [ ] Test finding printer dialog by title/class
+  - [ ] Test finding save dialog by title/class
+  - [ ] Document any installation issues or restrictions
+- [ ] **pyautogui installation & testing**:
+  - [ ] Can pyautogui be installed? (`pip install pyautogui`)
+  - [ ] Test basic pyautogui functionality (screenshot, click)
+  - [ ] Test clicking print button using image recognition
+  - [ ] Test coordinate-based clicking (if needed)
+  - [ ] Document screen resolution and scaling settings (affects coordinates)
+- [ ] **Windows API access**:
+  - [ ] Can Python access Windows API? (for advanced automation if needed)
+  - [ ] Any restrictions on using ctypes or win32api?
+- [ ] **Dialog automation testing**:
+  - [ ] Create simple test script to automate one label print manually
+  - [ ] Test: Find preview window → Click print → Select printer → Save file
+  - [ ] Document any issues or workarounds needed
+  - [ ] Test timing: How long to wait between each step?
+  - [ ] Test error handling: What if dialog doesn't appear?
 
 ### Credentials & Configuration
 - [ ] **Authentication method**:
@@ -289,6 +387,16 @@ This document outlines all items that should be investigated and documented at w
   - [ ] Very long item/lot numbers
   - [ ] Special characters in item/lot numbers
   - [ ] Large TSV file (many items)
+- [ ] **Label printing edge cases**:
+  - [ ] What if preview window doesn't open?
+  - [ ] What if print button is not visible/clickable?
+  - [ ] What if "Microsoft Print to PDF" is not in printer list?
+  - [ ] What if file save dialog doesn't appear?
+  - [ ] What if file path is too long?
+  - [ ] What if file already exists at save location?
+  - [ ] What if user has multiple monitors? (dialog might appear on different screen)
+  - [ ] What if another application has focus when dialog appears?
+  - [ ] What if printer dialog is minimized or behind other windows?
 
 ## 8. Documentation to Collect
 
@@ -301,6 +409,16 @@ This document outlines all items that should be investigated and documented at w
   - [ ] Label detail/view page
   - [ ] Error pages/messages
   - [ ] Download dialog (if appears)
+  - [ ] **ActiveX preview window** (full window, with print button visible)
+  - [ ] **Print button close-up** (for image recognition if needed)
+  - [ ] **Printer selection dialog** (full dialog, showing "Microsoft Print to PDF")
+  - [ ] **File save dialog** (full dialog, showing all fields and buttons)
+- [ ] **Window inspection data**:
+  - [ ] Use Spy++ (or similar tool) to capture:
+    - [ ] Preview window: Title, Class Name, Handle
+    - [ ] Printer dialog: Title, Class Name, Handle
+    - [ ] Save dialog: Title, Class Name, Handle
+  - [ ] Document all window properties needed for automation
 - [ ] **DOM snapshots**:
   - [ ] Save HTML snippets of key elements (production number results, label list, etc.)
   - [ ] Copy CSS selectors that work
@@ -322,10 +440,16 @@ This document outlines all items that should be investigated and documented at w
   - [ ] Firefox (same version as work if possible)
   - [ ] IDE/editor (VS Code, PyCharm, etc.)
   - [ ] Git (for version control)
+  - [ ] **Windows inspection tools**:
+    - [ ] Spy++ (Windows SDK) or alternative (WinSpy, Window Detective)
+    - [ ] For inspecting window titles, class names, handles
 - [ ] **Document work environment details**:
   - [ ] OS version (Windows 10/11?)
   - [ ] Python version
   - [ ] Firefox version
+  - [ ] Edge version
+  - [ ] Screen resolution and scaling (important for pyautogui coordinates)
+  - [ ] Number of monitors (affects window positioning)
   - [ ] Any other relevant software versions
 
 ## 10. Additional Considerations
@@ -335,6 +459,15 @@ This document outlines all items that should be investigated and documented at w
   - [ ] If Selenium doesn't work, research alternative automation tools
   - [ ] If PDF text extraction fails, document OCR setup requirements
   - [ ] If download automation fails, document manual download process
+  - [ ] **If Windows dialog automation fails**:
+    - [ ] Can browser print API be used instead? (unlikely with ActiveX)
+    - [ ] Can label data be intercepted/downloaded before ActiveX rendering?
+    - [ ] Is there an API endpoint that returns label PDF directly?
+    - [ ] Can Edge DevTools Protocol be used to intercept print commands?
+  - [ ] **If ActiveX doesn't work in automation**:
+    - [ ] Can labels be rendered differently? (check browser settings)
+    - [ ] Is there a non-ActiveX preview option?
+    - [ ] Can labels be accessed via direct download link?
 
 ### Compliance & Approval
 - [ ] **Check with IT/management** (if required):
@@ -364,9 +497,39 @@ This document outlines all items that should be investigated and documented at w
 8. ✅ Credentials and authentication flow documented
 9. ✅ Error scenarios documented with screenshots
 10. ✅ PDF text extraction test results
+11. ⚠️ **ActiveX Preview Window Details** (window title, class, print button location)
+12. ⚠️ **Printer Dialog Details** (title, class, how to select "Microsoft Print to PDF")
+13. ⚠️ **File Save Dialog Details** (title, class, field IDs, button labels)
+14. ⚠️ **Windows Automation Tools Testing** (pywinauto, pyautogui installation and basic tests)
+15. ⚠️ **Edge IE Mode Configuration** (if required for ActiveX)
+16. ⚠️ **Window Inspection Data** (Spy++ output for all dialogs)
+17. ⚠️ **Timing Information** (how long each dialog takes to appear)
 
 ---
 
 ## Notes Section
 
 _Use this section to write down any additional observations, questions, or findings during your research:_
+
+### Label Printing Automation Notes
+
+**Key Automation Challenges:**
+- ActiveX preview window is not accessible via Selenium (Windows-specific control)
+- Must use Windows automation tools (pywinauto/pyautogui) to interact with dialogs
+- Headless mode will NOT work - requires visible browser and dialogs
+- Multiple windows must be tracked and managed
+
+**Recommended Testing Sequence:**
+1. Manually print one label and document every step
+2. Use Spy++ to capture window properties (title, class, handle)
+3. Test pywinauto to find each window/dialog
+4. Test clicking buttons and entering text programmatically
+5. Create simple test script to automate one complete label print
+6. Test with multiple labels to identify timing issues
+
+**Critical Information to Collect:**
+- Exact window titles (may vary by Windows version/language)
+- Window class names (more reliable than titles)
+- Button positions or IDs
+- Timing between each step
+- Error scenarios (what if dialog doesn't appear?)

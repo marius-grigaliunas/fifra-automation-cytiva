@@ -156,6 +156,10 @@ def navigate_after_login(driver, wait):
     time.sleep(20)
     print("Navigation and production number extraction test completed.")
 
+def search_label(driver, wait):
+
+    
+    print("Starting searching for labels")
 
 def main():
     options = Options()

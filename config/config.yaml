@@ -4,6 +4,7 @@
 enlabel:
   login_url: "https://pallprod.enlabel.com/Login.aspx?ReturnUrl=%2f"
   manage_databases_url: "https://pallprod.enlabel.com/Collaboration/ManageDatabases/ManageDatabases.aspx"
+  production_labels_nopkg_url: "https://pallprod.enlabel.com/ProductionPrint/PrintTypes/PrintByOrder/PrintStart.aspx?ServiceId=10"
   username: ""  # Set via environment variable ENLABEL_USERNAME or update here
   password: ""  # Set via environment variable ENLABEL_PASSWORD or update here
 
@@ -31,6 +32,9 @@ locators:
     production_number_xpath: "//*[@id='ctl00_MainContent_gridDbRecords_ctl00__0']/td[2]/nobr"
     operand_index: 1  # 2nd option (0-indexed)
     column_index: 8   # 9th option (0-indexed)
+
+  label_searh:
+    production_number_input: "//*[@id='ctl00_MainContent__txtORDER_NUMBER']"
 
 # Timeouts (in seconds)
 timeouts:

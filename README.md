@@ -1,8 +1,5 @@
 # FIFRA Label Automation Plan
 
-## Overview
-
-Automate the process of extracting production numbers from enlabel, downloading digital labels, verifying label content, and combining them with shipping invoices for FIFRA shipments.
 
 ## Architecture
 
@@ -10,21 +7,25 @@ Automate the process of extracting production numbers from enlabel, downloading 
 flowchart TD
     A[GUI: Select TSV File] --> B[GUI: Select Invoice PDF]
     B --> C[Parse TSV Extract Item/Lot Numbers]
-    C --> D[Selenium: Login to enlabel]
-    D --> E[For Each Item: Search Production Number]
-    E --> F[Store Production Numbers in CSV/JSON]
-    F --> G[For Each Production Number: Search Labels]
-    G --> H[Identify Correct Label via DOM/Text]
-    H --> I[Download Label PDF]
-    I --> J[Verify Label Content Item/Lot/EPA]
-    J --> K{Merge Labels with Invoice}
-    K --> L[Output: Combined PDF]
-    L --> M[GUI: Display Results]
+    C --> D[Save Parsed Data to data/input/parsedInput.tsv]
+    D --> E[GUI: Display Extracted Key Info]
+    E --> F[Selenium: Login to enlabel]
+    F --> G[For Each Item: Search Production Number]
+    G --> H[Store Production Numbers in CSV/JSON]
+    H --> I[For Each Production Number: Search Labels]
+    I --> J[Identify Correct Label via DOM/Text]
+    J --> K[Download Label PDF]
+    K --> L[Verify Label Content Item/Lot/EPA]
+    L --> M{Merge Labels with Invoice}
+    M --> N[Output: Combined PDF]
+    N --> O[GUI: Display Results]
     
     style A fill:#e1f5ff
     style B fill:#e1f5ff
-    style L fill:#d4edda
-    style M fill:#d4edda
+    style D fill:#fff4e6
+    style E fill:#fff4e6
+    style N fill:#d4edda
+    style O fill:#d4edda
 ```
 
 ## Key Components
@@ -33,25 +34,31 @@ flowchart TD
 
 - Parse TSV file from Oracle ERP
 - Extract item numbers and lot numbers
+- Filter out container names (items starting with "CC-")
 - Remove any duplicates, same item can have different lot numbers
 - Extract shipment trip identifier (for folder organization)
 - Extract shipment Tracking identifier
 - Validate data structure
 - Handle missing/invalid entries
+- Save parsed data to `data/input/parsedInput.tsv` (intermediary step)
 
 ### 2. Enlabel Automation (`src/enlabel_automation.py`)
 
-- Selenium WebDriver setup with Microsoft edge
-- Login automation (already tested)
-- Production number search automation
+- Selenium WebDriver setup with Microsoft Edge
+- Login automation (already tested - see `testing/login-test.py`)
+- Production number search automation (tested and working)
 - Label search and identification
 - Handle multiple browser windows
-- Explicit waits for variable loading times
+- Explicit waits for variable loading times (wait for document ready + jQuery idle)
+- Iframe handling for page context switching
 - Store production numbers in verification file (CSV/JSON)
+- Helper functions:
+  - `_wait_ready_and_ajax()`: Wait for document ready and jQuery idle
+  - `_switch_into_frame_if_needed()`: Handle iframe context switching
 
 ### 3. Label Download Manager (`src/label_downloader.py`)
 
-- Configure Firefox download preferences (auto-save to predefined folder)
+- Configure Edge download preferences (auto-save to predefined folder)
 - Alternative: Use `pyautogui` for Windows dialog automation if browser config doesn't work
 - Download labels to trip-specific output folder with the name of (item)_(lot number)
 - Track downloaded files
@@ -111,6 +118,69 @@ flowchart TD
 - **logging**: Comprehensive logging
 - **configparser/yaml**: Configuration management
 
+## Data Structure & Implementation Details
+
+### TSV File Structure
+
+The TSV files exported from Oracle ERP contain the following key columns:
+
+- **Trip**: Shipment trip identifier (first column)
+- **Tracking Number**: Shipment tracking identifier (8th column)
+- **Item Name**: Product/item identifier (5th column, e.g., "NP6MSTGQP1" exclude the item names starting with CC- these are the names of the containers)
+- **Lot**: Lot number for the item (10th column, e.g., "UE4376", "UE4955")
+
+**Note**:
+
+- Lot numbers that are 9-digit numbers are already production numbers and do not need to be searched.
+- Container names (Item Name starting with "CC-") are automatically excluded from processing as they are not relevant for label processing.
+
+**Edge Cases**:
+
+- Empty/missing values in columns (flag for manual confirmation)
+- Multiple lots per item (one item can have different lot numbers)
+- No special characters expected in data
+- Container names (items starting with "CC-") are filtered out automatically
+
+### Enlabel Website Details
+
+#### Authentication
+
+- **Login URL**: `https://pallprod.enlabel.com/Login.aspx?ReturnUrl=%2f`
+- **Username Field**: ID = `ctl00_ContentPlaceHolder1_txtUserName`
+- **Password Field**: ID = `ctl00_ContentPlaceHolder1_txtPassword`
+- **Login Button**: ID = `ctl00_ContentPlaceHolder1_btnLogin`
+- **Browser**: Microsoft Edge (tested and working)
+- **Network Requirements**: Must run from Cytiva network
+
+#### Production Number Search Flow
+
+1. **Navigate to ManageDatabases**:
+   - URL: `https://pallprod.enlabel.com/Collaboration/ManageDatabases/ManageDatabases.aspx`
+   - Wait for page load (document ready + jQuery idle check)
+
+2. **Open Database Record**:
+   - Locate grid table: XPath contains `gridTables`
+   - Click the link in the second data row (index `__1`)
+   - Wait for records view to load
+
+3. **Set Filter for Lot Number Search**:
+   - Operand dropdown: ID contains `FilterControl_ddlOperand1` (select 2nd option, index 1)
+   - Column dropdown: ID contains `FilterControl_ddlColumn1` (select 9th option, index 8)
+   - Value input: ID = `ctl00_MainContent_FilterControl_txtValue1` (enter lot number)
+   - Find button: ID = `ctl00_MainContent_FilterControl_btnFind`
+
+4. **Extract Production Number**:
+   - Production number element: XPath = `//*[@id='ctl00_MainContent_gridDbRecords_ctl00__0']/td[2]/nobr`
+   - Extract text content from this element
+
+**Important Implementation Notes**:
+
+- Use iframe handling (`_switch_into_frame_if_needed`) - the page may use iframes
+- Wait for document ready state and jQuery idle: `_wait_ready_and_ajax`
+- Use explicit waits (WebDriverWait) with timeouts (typically 10-40 seconds)
+- Handle StaleElementReferenceException with retries
+- Use JavaScript click (`driver.execute_script("arguments[0].click();", element)`) if regular click fails
+
 ## Implementation Strategy
 
 ### Phase 1: Core Infrastructure
@@ -121,29 +191,28 @@ flowchart TD
 4. Set up logging framework
 5. Create basic GUI with file picker dialogs
 
-### Phase 2: Enlabel Automation
+### Phase 2.1: Enlabel production number search
 
-1. Extend existing login script
-2. Implement production number search
-3. Add label search functionality
-4. Handle multiple windows and waits
-5. Create production number storage system
+1. Implement production number search using the login-test.py file as a guide to the navigation path and correct selectors.
 
-### Phase 3: Label Download & Verification
+### Phase 2.2: Enlable Label Download & Verification
 
-1. Configure browser download preferences
-2. Implement label download automation
-3. Create label verification system (start with text extraction)
-4. Add OCR fallback if needed
-5. Test with sample labels
+1. Add label search functionality
+2. Handle multiple windows and waits
+3. Create production number storage system
+4. Configure browser download preferences
+5. Implement label download automation
+6. Create label verification system (start with text extraction)
+7. Add OCR fallback if needed
+8. Test with sample labels
 
-### Phase 4: PDF Processing
+### Phase 3: PDF Processing
 
 1. Implement PDF merger
 2. Add invoice integration
 3. Test end-to-end flow
 
-### Phase 5: Error Handling & Polish
+### Phase 4: Error Handling & Polish
 
 1. Add comprehensive error handling
 2. Implement retry logic
@@ -178,6 +247,7 @@ fifra-automation-cytiva/
 │   └── config.yaml
 ├── data/
 │   ├── input/          # TSV files from Oracle ERP
+│   │   └── parsedInput.tsv  # Parsed and extracted key data (intermediary file)
 │   └── verification/   # Production numbers CSV
 ├── output/             # Trip-based output folders
 │   └── [TRIP_NAME]/    # Each shipment trip gets its own folder
@@ -190,9 +260,181 @@ fifra-automation-cytiva/
 └── .env.example        # Template for credentials
 ```
 
-### Output Organization
+### Data Flow
 
-- Each shipment trip will have its own folder in the `output/` directory
-- The folder name will be based on the trip identifier extracted from the TSV file or invoice
-- All files for a trip (downloaded labels, invoice copy, combined PDF) are stored together in the trip folder
-- This organization makes it easy to locate all files related to a specific shipment
+1. **Input Processing**:
+   - User selects TSV file and Invoice PDF via GUI
+   - TSV file is parsed and key columns are extracted (Trip, Tracking Number, Item Name, Lot)
+   - Container names (starting with "CC-") are filtered out
+   - Parsed data is saved to `data/input/parsedInput.tsv` for verification
+   - Extracted key information is displayed in the GUI
+
+2. **Output Organization**:
+   - Each shipment trip will have its own folder in the `output/` directory
+   - The folder name will be based on the trip identifier extracted from the TSV file or invoice
+   - All files for a trip (downloaded labels, invoice copy, combined PDF) are stored together in the trip folder
+   - This organization makes it easy to locate all files related to a specific shipment
+
+### Installation
+
+1. **Clone or download the project** to your local machine.
+
+2. **Set up Python environment** (choose one option):
+
+   **Option A: Using a virtual environment** (recommended, but not mandatory):
+   - Virtual environments help isolate dependencies and prevent conflicts with other Python projects
+   - **Note**: Virtual environments do not require administrator privileges and work well on work computers
+   - Create a virtual environment:
+     ```bash
+     python -m venv venv
+     ```
+   - Activate the virtual environment:
+     - On Windows (PowerShell):
+       ```powershell
+       .\venv\Scripts\Activate.ps1
+       ```
+     - On Windows (Command Prompt):
+       ```cmd
+       venv\Scripts\activate.bat
+       ```
+
+   **Option B: Install to user directory** (for work computers without virtual environment access):
+   - If you cannot use virtual environments on your work computer, you can install packages to your user directory instead
+   - This does not require administrator privileges
+   - Simply skip creating a virtual environment and proceed to step 3
+
+3. **Install dependencies**:
+   
+   If you're using Option A (virtual environment):
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+   If you're using Option B (no virtual environment), use:
+   ```bash
+   pip install --user -r requirements.txt
+   ```
+   
+   The `--user` flag installs packages to your user directory, avoiding the need for administrator privileges.
+
+   This will install:
+   - `selenium` - Browser automation
+   - `pandas` - Data processing
+   - `PyPDF2` and `pdfplumber` - PDF processing
+   - `PyYAML` - Configuration management
+
+4. **Install Microsoft Edge WebDriver** (if not already installed):
+   - Selenium 4.15+ should automatically manage Edge WebDriver
+   - If you encounter issues, download EdgeDriver from: https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+
+### Configuration
+
+1. **Create a configuration file**:
+   - Copy `config/config.yaml` template (if provided)
+   - Or create `config/config.yaml` with your settings
+
+2. **Set up credentials** (choose one method):
+   
+   **Option B: Edit config.yaml**
+   - Edit `config/config.yaml`
+   - Add your credentials to the `enlabel` section:
+     ```yaml
+     enlabel:
+       username: "your_username"
+       password: "your_password"
+     ```
+   - **Note**: Do not commit credentials to version control
+
+3. **Verify directory structure**:
+   - Ensure these directories exist:
+     - `data/input/` - For input TSV files
+     - `data/verification/` - For verification files
+     - `output/` - For output files
+     - `logs/` - For log files
+   - Directories will be created automatically if they don't exist
+
+### Running the Application
+
+#### Option 1: GUI Mode (Recommended)
+
+Run the application with the graphical interface:
+
+```bash
+python run.py
+```
+
+Or using the module syntax:
+
+```bash
+python -m src.main
+```
+
+**Note**: If you encounter import errors when running directly, use `python run.py` or `python -m src.main` instead of `python src/main.py`.
+
+The GUI allows you to:
+1. Select a TSV file from Oracle ERP
+2. Select an Invoice PDF file
+3. Click "Start Automation" to process the files
+4. View extracted key information in the status area
+5. Check `data/input/parsedInput.tsv` to verify the parsed data
+
+#### Option 2: Command-Line Mode
+
+Run without GUI (useful for scripting):
+
+```bash
+python run.py --no-gui --tsv "path/to/file.tsv" --invoice "path/to/invoice.pdf"
+```
+
+Or:
+
+```bash
+python -m src.main --no-gui --tsv "path/to/file.tsv" --invoice "path/to/invoice.pdf"
+```
+
+### First Run
+
+1. **Start the application** (GUI mode recommended):
+   ```bash
+   python run.py
+   ```
+
+2. **Select your files**:
+   - Click "Browse..." next to "TSV File:" and select your TSV file
+   - Click "Browse..." next to "Invoice PDF:" and select your invoice PDF
+
+3. **Start processing**:
+   - Click "Start Automation"
+   - Monitor progress in the status area
+
+4. **Check results**:
+   - View extracted information in the GUI status area
+   - Check `data/input/parsedInput.tsv` for the parsed data
+   - Check `logs/fifra_automation.log` for detailed logs
+
+### Troubleshooting
+
+**Import errors:**
+- **Common error**: `ModuleNotFoundError: No module named 'src'` when running `python src/main.py`
+  - **Solution**: Use `python run.py` or `python -m src.main` instead
+  - The `run.py` script properly sets up the Python path
+- Ensure you're in the project root directory
+- If using a virtual environment, verify it is activated
+- Check that all dependencies are installed: `pip list`
+- If you installed with `--user` flag, ensure your Python user site-packages directory is in your PATH
+
+**Configuration errors:**
+- Verify `config/config.yaml` exists and is valid YAML
+- Check that credentials are set (environment variables or config file)
+- Ensure all required directories exist
+
+**Network/Connection issues:**
+- Verify you're connected to the Cytiva network
+- Check that the enlabel website is accessible
+- Review logs in `logs/fifra_automation.log` for details
+
+**Browser/WebDriver issues:**
+- Ensure Microsoft Edge is installed
+- Update Edge to the latest version
+- Selenium 4.15+ should handle EdgeDriver automatically
+- Check logs for WebDriver errors

@@ -1,0 +1,85 @@
+# FIFRA Automation Configuration
+
+# Enlabel Website Configuration
+enlabel:
+  login_url: "https://pallprod.enlabel.com/Login.aspx?ReturnUrl=%2f"
+  manage_databases_url: "https://pallprod.enlabel.com/Collaboration/ManageDatabases/ManageDatabases.aspx"
+  username: ""  # Set via environment variable ENLABEL_USERNAME or update here
+  password: ""  # Set via environment variable ENLABEL_PASSWORD or update here
+
+# Browser Configuration
+browser:
+  driver: "Edge"  # Options: Edge, Chrome, Firefox
+  headless: false
+  implicit_wait: 10  # seconds
+  page_load_timeout: 60  # seconds
+
+# Selenium Locators
+locators:
+  login:
+    username_field: "ctl00_ContentPlaceHolder1_txtUserName"
+    password_field: "ctl00_ContentPlaceHolder1_txtPassword"
+    login_button: "ctl00_ContentPlaceHolder1_btnLogin"
+  
+  production_search:
+    grid_tables_xpath: "//*[contains(@id,'MainContent') and contains(@id,'gridTables')]"
+    row2_link_xpath: "//*[@id[contains(.,'gridTables')]]//*[contains(@id,'__1')]//td[1]//a"
+    operand_dropdown: "//*[contains(@id,'FilterControl_ddlOperand1')]"
+    column_dropdown: "//*[contains(@id,'FilterControl_ddlColumn1')]"
+    value_input: "ctl00_MainContent_FilterControl_txtValue1"
+    find_button: "ctl00_MainContent_FilterControl_btnFind"
+    production_number_xpath: "//*[@id='ctl00_MainContent_gridDbRecords_ctl00__0']/td[2]/nobr"
+    operand_index: 1  # 2nd option (0-indexed)
+    column_index: 8   # 9th option (0-indexed)
+
+# Timeouts (in seconds)
+timeouts:
+  page_load: 40
+  element_wait: 10
+  ajax_wait: 30
+  short_wait: 2
+
+# Paths
+paths:
+  input_dir: "data/input"
+  verification_dir: "data/verification"
+  output_dir: "output"
+  logs_dir: "logs"
+  download_dir: "output/temp_downloads"  # Temporary downloads before moving to trip folders
+
+# TSV File Configuration
+tsv:
+  # Column names (0-indexed positions for reference)
+  # Trip: 0, Detail: 1, LPN: 2, Ship Set: 3, Item Name: 4, Delivery: 5,
+  # Parent LPN: 6, Tracking Number: 7, Master LPN: 8, Lot: 9
+  column_names:
+    trip: "Trip"
+    tracking_number: "Tracking Number"
+    item_name: "Item Name"
+    lot: "Lot"
+  encoding: "utf-8"
+  delimiter: "\t"
+
+# Production Number Rules
+production_number:
+  # Lot numbers that are 9-digit numbers are already production numbers
+  lot_is_production_number_pattern: "^\\d{9}$"
+
+# Output Configuration
+output:
+  combined_pdf_prefix: "Trip"
+  combined_pdf_suffix: "Tracking"
+  label_filename_format: "{item_name}_{lot_number}.pdf"
+
+# Retry Configuration
+retry:
+  max_attempts: 3
+  delay_seconds: 2
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/fifra_automation.log"
+  max_bytes: 10485760  # 10 MB
+  backup_count: 5

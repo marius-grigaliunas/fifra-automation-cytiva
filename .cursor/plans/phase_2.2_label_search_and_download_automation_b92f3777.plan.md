@@ -1,9 +1,3 @@
----
-name: Phase 2.2 Label Search and Download Automation
-overview: Implement automated label search, preview verification, and download using Edge IE mode with Selenium for navigation and pywinauto/pyautogui for ActiveX preview window interaction. The system will search labels by production number, verify label content (item number, lot number, EPA number), and save correct labels with proper naming.
-todos: []
----
-
 # Phase 2.2: Label Search and Download Automation Plan
 
 ## Overview

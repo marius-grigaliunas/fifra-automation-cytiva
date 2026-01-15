@@ -5,8 +5,8 @@ enlabel:
   login_url: "https://pallprod.enlabel.com/Login.aspx?ReturnUrl=%2f"
   manage_databases_url: "https://pallprod.enlabel.com/Collaboration/ManageDatabases/ManageDatabases.aspx"
   production_labels_nopkg_url: "https://pallprod.enlabel.com/ProductionPrint/PrintTypes/PrintByOrder/PrintStart.aspx?ServiceId=10"
-  username: ""  # Set via environment variable ENLABEL_USERNAME or update here
-  password: ""  # Set via environment variable ENLABEL_PASSWORD or update here
+  username: "mariusg"  # Set via environment variable ENLABEL_USERNAME or update here
+  password: "LietuvaTevyneMusu!123"  # Set via environment variable ENLABEL_PASSWORD or update here
 
 # Browser Configuration
 browser:

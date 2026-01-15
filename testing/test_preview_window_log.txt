@@ -1,0 +1,1569 @@
+[2026-01-15 19:43:23] [INFO] ============================================================
+[2026-01-15 19:43:23] [INFO] Preview Window Test Script
+[2026-01-15 19:43:23] [INFO] ============================================================
+[2026-01-15 19:43:23] [INFO] Test started at: 2026-01-15 19:43:23
+[2026-01-15 19:43:23] [INFO] 
+[2026-01-15 19:43:23] [INFO] IMPORTANT: This script assumes a preview window is already open.
+[2026-01-15 19:43:23] [INFO] Please open a label preview window before continuing.
+[2026-01-15 19:43:23] [INFO] 
+[2026-01-15 19:43:28] [INFO] 
+[2026-01-15 19:43:28] [INFO] 
+============================================================
+[2026-01-15 19:43:28] [INFO] Listing all open windows
+[2026-01-15 19:43:28] [INFO] ============================================================
+[2026-01-15 19:43:28] [INFO] Found 379 window(s)
+[2026-01-15 19:43:28] [INFO]   Window 1:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ForegroundStaging'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 2:
+[2026-01-15 19:43:28] [INFO]     Title: 'Task Switching'
+[2026-01-15 19:43:28] [INFO]     Class: 'XamlExplorerHostIslandWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 3:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ForegroundStaging'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 4:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ThumbnailDeviceHelperWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 5:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ThumbnailDeviceHelperWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 6:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 7:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 8:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 9:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 10:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 11:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 12:
+[2026-01-15 19:43:28] [INFO]     Title: 'Tooltip'
+[2026-01-15 19:43:28] [INFO]     Class: 'Touch Tooltip Window'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 13:
+[2026-01-15 19:43:28] [INFO]     Title: 'Microsoft Teams'
+[2026-01-15 19:43:28] [INFO]     Class: 'TeamsWebView'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 14:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 15:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Shell_TrayWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 16:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Shell_SecondaryTrayWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 17:
+[2026-01-15 19:43:28] [INFO]     Title: 'HardwareMonitorWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'HardwareMonitorWindowClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 18:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'NotifyIconOverflowWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 19:
+[2026-01-15 19:43:28] [INFO]     Title: 'Battery Meter'
+[2026-01-15 19:43:28] [INFO]     Class: 'SystemTray_Main'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 20:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ATL:00007FFB01BC0550'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 21:
+[2026-01-15 19:43:28] [INFO]     Title: 'Network Flyout'
+[2026-01-15 19:43:28] [INFO]     Class: 'ATL:00007FFAF99ED230'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 22:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PNIHiddenWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 23:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 24:
+[2026-01-15 19:43:28] [INFO]     Title: 'HardwareMonitorWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'HardwareMonitorWindowClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 25:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 26:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 27:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 28:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Net UI Tool Window'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 29:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 30:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 31:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Net UI Tool Window'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 32:
+[2026-01-15 19:43:28] [INFO]     Title: 'Minimize the Folder Pane'
+[2026-01-15 19:43:28] [INFO]     Class: 'OfficeTooltip'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 33:
+[2026-01-15 19:43:28] [INFO]     Title: 'Tooltip'
+[2026-01-15 19:43:28] [INFO]     Class: 'Touch Tooltip Window'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 34:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PseudoConsoleWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 35:
+[2026-01-15 19:43:28] [INFO]     Title: 'test_preview_window.py - fifra-automation-cytiva - Cursor'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 36:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 37:
+[2026-01-15 19:43:28] [INFO]     Title: 'enLabel Global Services - Profile 1 - Microsoft​ Edge'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 38:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (IEXPLORE.EXE)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 39:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 40:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'VSyncHelper-0B142210-3a65911e47'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 41:
+[2026-01-15 19:43:28] [INFO]     Title: 'enLabel Global Services - Internet Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'TabThumbnailWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 42:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'VSyncHelper-04E184E0-3a6330e4c6'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 43:
+[2026-01-15 19:43:28] [INFO]     Title: 'enLabel Global Services - Internet Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'TabThumbnailWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 44:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 45:
+[2026-01-15 19:43:28] [INFO]     Title: 'Internet Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'IEFrame'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 46:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 47:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 48:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 49:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 50:
+[2026-01-15 19:43:28] [INFO]     Title: 'enLabel Global Services - Profile 1 - Microsoft​ Edge'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 51:
+[2026-01-15 19:43:28] [INFO]     Title: 'DesktopWindowXamlSource'
+[2026-01-15 19:43:28] [INFO]     Class: 'Windows.UI.Core.CoreWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 52:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 53:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 54:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Base_PowerMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 55:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'crashpad_SessionEndWatcher'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 56:
+[2026-01-15 19:43:28] [INFO]     Title: 'C:\Windows\system32\cmd.exe'
+[2026-01-15 19:43:28] [INFO]     Class: 'ConsoleWindowClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 57:
+[2026-01-15 19:43:28] [INFO]     Title: 'Cytiva BES - General - All Documents and 9 more pages - Work - Microsoft​ Edge'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 58:
+[2026-01-15 19:43:28] [INFO]     Title: 'Oracle Applications - BIOPROD'
+[2026-01-15 19:43:28] [INFO]     Class: 'SunAwtFrame'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 59:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 60:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 61:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 62:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 63:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 64:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 65:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 66:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 67:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 68:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WBPOPUP'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 69:
+[2026-01-15 19:43:28] [INFO]     Title: 'CYT BES OUTBOUND DEV - Inbox - CYT BES OUTBOUND DEV - Outlook'
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_renwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 70:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 71:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 72:
+[2026-01-15 19:43:28] [INFO]     Title: '117141926 - File Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'CabinetWClass'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 73:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 74:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 75:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 76:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 77:
+[2026-01-15 19:43:28] [INFO]     Title: 'FIFRA Trip 117141926_Tracking 1072047964 - Message (HTML) '
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_renwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 78:
+[2026-01-15 19:43:28] [INFO]     Title: 'Document6'
+[2026-01-15 19:43:28] [INFO]     Class: 'OpusApp'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 79:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'NUIDialog'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 80:
+[2026-01-15 19:43:28] [INFO]     Title: 'production_numbers - Excel'
+[2026-01-15 19:43:28] [INFO]     Class: 'XLMAIN'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 81:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_2'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 82:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 83:
+[2026-01-15 19:43:28] [INFO]     Title: 'verification - File Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'CabinetWClass'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 84:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Hidden Window of the IM Abstraction layer'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 85:
+[2026-01-15 19:43:28] [INFO]     Title: 'W蝯'
+[2026-01-15 19:43:28] [INFO]     Class: 'WMS Notif Engine:Dispatch Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 86:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'MsoPeopleSearchMessages'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 87:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'MsoStdCompMgr'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 88:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ThunderMain'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 89:
+[2026-01-15 19:43:28] [INFO]     Title: 'DDE Server Window'
+[2026-01-15 19:43:28] [INFO]     Class: 'OleDdeWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 90:
+[2026-01-15 19:43:28] [INFO]     Title: 'OfficePowerManagerWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'OfficePowerManagerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 91:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ARC Event Window 00'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 92:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ARC Event Window 00'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 93:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ARC Event Window 00'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 94:
+[2026-01-15 19:43:28] [INFO]     Title: 'AcroStubUnloadWClass'
+[2026-01-15 19:43:28] [INFO]     Class: 'AcroStubUnloadWClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 95:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ComboLBox'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 96:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ComboLBox'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 97:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 98:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PseudoConsoleWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 99:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (IEXPLORE.EXE)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 100:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 101:
+[2026-01-15 19:43:28] [INFO]     Title: 'ViewDeferedNotifManager 0x11A4 0x703C'
+[2026-01-15 19:43:28] [INFO]     Class: 'ViewDeferedNotifManager'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 102:
+[2026-01-15 19:43:28] [INFO]     Title: 'TNOTIFThisThreadSink 0x11A4 0x703C'
+[2026-01-15 19:43:28] [INFO]     Class: 'TNOTIFThisThreadSink'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 103:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 104:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Windows.UI.Core.CoreWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 105:
+[2026-01-15 19:43:28] [INFO]     Title: 'Settings'
+[2026-01-15 19:43:28] [INFO]     Class: 'ApplicationFrameWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 106:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PseudoConsoleWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 107:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 108:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (chrome.exe)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 109:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Electron_NotifyIconHostWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 110:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 111:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'crashpad_SessionEndWatcher'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 112:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Electron_SystemPreferencesHostWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 113:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 114:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Base_PowerMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 115:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ApplicationManager_DesktopShellWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 116:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 117:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'VSyncHelper-058B21B0-394c2d1df2'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 118:
+[2026-01-15 19:43:28] [INFO]     Title: 'enLabel Global Services - Internet Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'TabThumbnailWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 119:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 120:
+[2026-01-15 19:43:28] [INFO]     Title: 'Word'
+[2026-01-15 19:43:28] [INFO]     Class: 'OpusApp'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 121:
+[2026-01-15 19:43:28] [INFO]     Title: 'Turek, Krzysztof'
+[2026-01-15 19:43:28] [INFO]     Class: 'Net UI Tool Window Layered'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 122:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 123:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 124:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 125:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Base_PowerMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 126:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'crashpad_SessionEndWatcher'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 127:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'SunAwtFrame'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 128:
+[2026-01-15 19:43:28] [INFO]     Title: 'theAwtToolkitWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'SunAwtToolkit'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 129:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 130:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 131:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 132:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 133:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 134:
+[2026-01-15 19:43:28] [INFO]     Title: 'RE: Deliveries in Hold 168105637-168105641 Randox - Message (HTML) '
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_renwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 135:
+[2026-01-15 19:43:28] [INFO]     Title: 'Document7 - Word'
+[2026-01-15 19:43:28] [INFO]     Class: 'OpusApp'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 136:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 137:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 138:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (Explorer.EXE)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 139:
+[2026-01-15 19:43:28] [INFO]     Title: 'Progress'
+[2026-01-15 19:43:28] [INFO]     Class: 'OperationStatusWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 140:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (splwow64.exe)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 141:
+[2026-01-15 19:43:28] [INFO]     Title: 'Internet Explorer'
+[2026-01-15 19:43:28] [INFO]     Class: 'IEFrame'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 142:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 143:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 144:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 145:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 146:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 147:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 148:
+[2026-01-15 19:43:28] [INFO]     Title: 'OutlookFbThreadWnd'
+[2026-01-15 19:43:28] [INFO]     Class: 'OutlookFbThreadWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 149:
+[2026-01-15 19:43:28] [INFO]     Title: '6 Reminder(s)'
+[2026-01-15 19:43:28] [INFO]     Class: '#32770'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 150:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 151:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'REListBox20W'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 152:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 153:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 154:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 155:
+[2026-01-15 19:43:28] [INFO]     Title: 'WMS ST Notif Window 000011A4 00007CB4'
+[2026-01-15 19:43:28] [INFO]     Class: 'WMS ST Notif Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 156:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 157:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 158:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 159:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Base_PowerMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 160:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'crashpad_SessionEndWatcher'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 161:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'tooltips_class32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 162:
+[2026-01-15 19:43:28] [INFO]     Title: 'Outlook Send/Receive Progress'
+[2026-01-15 19:43:28] [INFO]     Class: '#32770'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 163:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: '_WwO'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 164:
+[2026-01-15 19:43:28] [INFO]     Title: 'RE: FW: RE: RE: 225012/000001   delivery from one batch  PO  4516528836    WG: ARSO 2211692667 - Message'
+[2026-01-15 19:43:28] [INFO]     Class: 'OpusApp'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 165:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'MsoStdCompMgr'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 166:
+[2026-01-15 19:43:28] [INFO]     Title: 'DDE Server Window'
+[2026-01-15 19:43:28] [INFO]     Class: 'OleDdeWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 167:
+[2026-01-15 19:43:28] [INFO]     Title: 'Microsoft Outlook Social Connector'
+[2026-01-15 19:43:28] [INFO]     Class: 'MerengueNotifyWnd'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 168:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'TeamsMeetingAddinWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 169:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Outlook Notification Area Icon Window'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 170:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Hidden Window of the IM Abstraction layer'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 171:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'MsoPeopleSearchMessages'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 172:
+[2026-01-15 19:43:28] [INFO]     Title: 'WMS ST Notif Window 000011A4 0000703C'
+[2026-01-15 19:43:28] [INFO]     Class: 'WMS ST Notif Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 173:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'OutlookAcctMgrNotificationWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 174:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_sbpwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 175:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_sbpwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 176:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_sbpwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 177:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_sbpwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 178:
+[2026-01-15 19:43:28] [INFO]     Title: 'W￿'
+[2026-01-15 19:43:28] [INFO]     Class: 'WMS Notif Engine:Dispatch Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 179:
+[2026-01-15 19:43:28] [INFO]     Title: 'OfficePowerManagerWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'OfficePowerManagerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 180:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ARC Event Window 00'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 181:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ARC Event Window 00'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 182:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ARC Event Window 00'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 183:
+[2026-01-15 19:43:28] [INFO]     Title: 'Microsoft Outlook'
+[2026-01-15 19:43:28] [INFO]     Class: 'mspim_wnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 184:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (msedge.exe)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 185:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PrintCacheLocalConnectionListenerHiddenWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 186:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PrintCacheListenerWindow_19A79E3F-0006-4175-AACD-6F5C69CC0D23'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 187:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ASYNCUI_NOTIFYICON_WINDOW_CLASS'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 188:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PrintTray_Notify_WndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 189:
+[2026-01-15 19:43:28] [INFO]     Title: 'Zscaler Client Connector'
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[ZSATray.exe;;b99eebef-4a16-457e-bc28-7346d4848d42]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 190:
+[2026-01-15 19:43:28] [INFO]     Title: 'SystemResourceNotifyWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[ZSATray.exe;;7c0cee24-705a-4cc5-a67a-8d0787e8a645]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 191:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WindowsForms10.Window.0.app.0.2ca5f28_r9_ad1'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 192:
+[2026-01-15 19:43:28] [INFO]     Title: 'GDI+ Window (ZSATray.exe)'
+[2026-01-15 19:43:28] [INFO]     Class: 'GDI+ Hook Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 193:
+[2026-01-15 19:43:28] [INFO]     Title: '.NET-BroadcastEventWindow.4.0.0.0.2ca5f28.0'
+[2026-01-15 19:43:28] [INFO]     Class: '.NET-BroadcastEventWindow.4.0.0.0.2ca5f28.0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 194:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[ZSATray.exe;;d3db61a7-7f83-4f5b-b55c-20c23e991ea5]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 195:
+[2026-01-15 19:43:28] [INFO]     Title: 'Rtc Video PnP Listener'
+[2026-01-15 19:43:28] [INFO]     Class: 'RtcPalVideoPnPMonitorHWND'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 196:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 197:
+[2026-01-15 19:43:28] [INFO]     Title: 'MediaContextNotificationWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[ZSATray.exe;;d1e47d3d-05e3-403e-a13e-083a067e3650]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 198:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'TeamsMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 199:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[ZSATray.exe;;7f866370-1368-4e9e-87e9-c3d59c5a4ebe]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 200:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 201:
+[2026-01-15 19:43:28] [INFO]     Title: 'Microsoft Teams'
+[2026-01-15 19:43:28] [INFO]     Class: 'TeamsWebView'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 202:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 203:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 204:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 205:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Base_PowerMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 206:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'crashpad_SessionEndWatcher'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 207:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'MonitorChangeProbeWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 208:
+[2026-01-15 19:43:28] [INFO]     Title: 'DDE Server Window'
+[2026-01-15 19:43:28] [INFO]     Class: 'OleDdeWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 209:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'TeamsMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 210:
+[2026-01-15 19:43:28] [INFO]     Title: 'Windows Input Experience'
+[2026-01-15 19:43:28] [INFO]     Class: 'Windows.UI.Core.CoreWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 211:
+[2026-01-15 19:43:28] [INFO]     Title: 'SystemResourceNotifyWindow'
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[SCNotification.exe;;c7e24f72-36c1-4063-a6a2-d385a7e4f9a4]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 212:
+[2026-01-15 19:43:28] [INFO]     Title: '.NET-BroadcastEventWindow.4.0.0.0.34f5582.0'
+[2026-01-15 19:43:28] [INFO]     Class: '.NET-BroadcastEventWindow.4.0.0.0.34f5582.0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 213:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'HwndWrapper[SCNotification.exe;;ce06bb93-3ebd-4b2a-9c16-7769656c9718]'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 214:
+[2026-01-15 19:43:28] [INFO]     Title: 'Microsoft OneDrive Sync Service'
+[2026-01-15 19:43:28] [INFO]     Class: 'Nucleus Auth Window'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 215:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ATL:00007FFB1699D0D0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 216:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 217:
+[2026-01-15 19:43:28] [INFO]     Title: 'FileOpenBroker64.exe'
+[2026-01-15 19:43:28] [INFO]     Class: 'FOBROKER64APP'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 218:
+[2026-01-15 19:43:28] [INFO]     Title: 'RealtekAudioBackgroundProcessClass'
+[2026-01-15 19:43:28] [INFO]     Class: 'RealtekAudioBackgroundProcessClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 219:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'ATL:00007FFAD4F2E000'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 220:
+[2026-01-15 19:43:28] [INFO]     Title: 'SecurityHealthSystray'
+[2026-01-15 19:43:28] [INFO]     Class: 'SecHealth Window Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 221:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 222:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 223:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Base_PowerMessageWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 224:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'crashpad_SessionEndWatcher'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 225:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'HelperWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 226:
+[2026-01-15 19:43:28] [INFO]     Title: 'MS_WebcheckMonitor'
+[2026-01-15 19:43:28] [INFO]     Class: 'MS_WebcheckMonitor'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 227:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 228:
+[2026-01-15 19:43:28] [INFO]     Title: 'BluetoothNotificationAreaIconWindowClass'
+[2026-01-15 19:43:28] [INFO]     Class: 'BluetoothNotificationAreaIconWindowClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 229:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 230:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 231:
+[2026-01-15 19:43:28] [INFO]     Title: 'DDE Server Window'
+[2026-01-15 19:43:28] [INFO]     Class: 'OleDdeWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 232:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Postures Broadcast Listener Class'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 233:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'TabletModeCoverWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 234:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'TabletModeCoverWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 235:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 236:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 237:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DummyDWMListenerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 238:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'EdgeUiInputTopWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 239:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'EdgeUiInputTopWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 240:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DummyDWMListenerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 241:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DummyDWMListenerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 242:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DummyDWMListenerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 243:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DummyDWMListenerWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 244:
+[2026-01-15 19:43:28] [INFO]     Title: 'DesktopWindowXamlSource'
+[2026-01-15 19:43:28] [INFO]     Class: 'Windows.UI.Core.CoreWindow'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 245:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_0'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 246:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'SkyLibWindowsReactor'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 247:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 248:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 249:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 250:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 251:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 252:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DDEMLEvent'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 253:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'DDEMLMom'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 254:
+[2026-01-15 19:43:28] [INFO]     Title: 'Windows Push Notifications Platform'
+[2026-01-15 19:43:28] [INFO]     Class: 'PushNotificationsPowerManagement'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 255:
+[2026-01-15 19:43:28] [INFO]     Title: 'Task Host Window'
+[2026-01-15 19:43:28] [INFO]     Class: 'COMTASKSWINDOWCLASS'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 256:
+[2026-01-15 19:43:28] [INFO]     Title: 'HidKeyboardEmulator'
+[2026-01-15 19:43:28] [INFO]     Class: 'HIDKEYBOARDEMULATOR'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 257:
+[2026-01-15 19:43:28] [INFO]     Title: 'DWM Notification Window'
+[2026-01-15 19:43:28] [INFO]     Class: 'Dwm'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 258:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'CicLoaderWndClass'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 259:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'rctrl_renwnd32'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 260:
+[2026-01-15 19:43:28] [INFO]     Title: 'Show Request Details - [InPrivate] - Microsoft​ Edge'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 261:
+[2026-01-15 19:43:28] [INFO]     Title: 'Welcome to xCarrier - Work - Microsoft​ Edge'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 262:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PaintPriority'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 263:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Internet Explorer_Hidden'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 264:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'XLMAIN'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 265:
+[2026-01-15 19:43:28] [INFO]     Title: '[GitHub] Sudo email verification code - cia.marius.grigaliunas@gmail.com - Gmail - Google Chrome'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 266:
+[2026-01-15 19:43:28] [INFO]     Title: 'Chat | Tibrin, Elena Teodora | Microsoft Teams'
+[2026-01-15 19:43:28] [INFO]     Class: 'TeamsWebView'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 267:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Internet Explorer_Hidden'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 268:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PaintPriority'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 269:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'PaintPriority'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 270:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'Internet Explorer_Hidden'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 271:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 272:
+[2026-01-15 19:43:28] [INFO]     Title: ''
+[2026-01-15 19:43:28] [INFO]     Class: 'WorkerW'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 273:
+[2026-01-15 19:43:28] [INFO]     Title: 'Program Manager'
+[2026-01-15 19:43:28] [INFO]     Class: 'Progman'
+[2026-01-15 19:43:28] [INFO]     Visible: True
+[2026-01-15 19:43:28] [INFO]   Window 274:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 275:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 276:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 277:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 278:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 279:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 280:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 281:
+[2026-01-15 19:43:28] [INFO]     Title: 'CiceroUIWndFrame'
+[2026-01-15 19:43:28] [INFO]     Class: 'CiceroUIWndFrame'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 282:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 283:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 284:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 285:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 286:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 287:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 288:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 289:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 290:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 291:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 292:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 293:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 294:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 295:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 296:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 297:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 298:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 299:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 300:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 301:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 302:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 303:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 304:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 305:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 306:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 307:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 308:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 309:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 310:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 311:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 312:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 313:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 314:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 315:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 316:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 317:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 318:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 319:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 320:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 321:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 322:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 323:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 324:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 325:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 326:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 327:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 328:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 329:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 330:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 331:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 332:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 333:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 334:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 335:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 336:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 337:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 338:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 339:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 340:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 341:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 342:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 343:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 344:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 345:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 346:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 347:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 348:
+[2026-01-15 19:43:28] [INFO]     Title: 'CiceroUIWndFrame'
+[2026-01-15 19:43:28] [INFO]     Class: 'CiceroUIWndFrame'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 349:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 350:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 351:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 352:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 353:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 354:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 355:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 356:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 357:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 358:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 359:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 360:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 361:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 362:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 363:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 364:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 365:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 366:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 367:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 368:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 369:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 370:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 371:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 372:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 373:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 374:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 375:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 376:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 377:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 378:
+[2026-01-15 19:43:28] [INFO]     Title: 'M'
+[2026-01-15 19:43:28] [INFO]     Class: 'MSCTFIME UI'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO]   Window 379:
+[2026-01-15 19:43:28] [INFO]     Title: 'Default IME'
+[2026-01-15 19:43:28] [INFO]     Class: 'IME'
+[2026-01-15 19:43:28] [INFO]     Visible: False
+[2026-01-15 19:43:28] [INFO] 
+============================================================
+[2026-01-15 19:43:28] [INFO] STEP 1: Finding preview window
+[2026-01-15 19:43:28] [INFO] ============================================================
+[2026-01-15 19:43:28] [INFO] Searching with timeout: 10 seconds
+[2026-01-15 19:43:28] [INFO] Title patterns: ['Label Preview', 'Preview', 'Label', 'Print Preview', 'enLabel']
+[2026-01-15 19:43:28] [INFO] Class patterns: ['Internet Explorer_Server', 'IEFrame', 'Shell Embedding', 'ActiveX']
+[2026-01-15 19:43:28] [INFO] Checking 379 windows...
+[2026-01-15 19:43:28] [INFO] ✓ Found window by title pattern 'Preview':
+[2026-01-15 19:43:28] [INFO]     Title: 'test_preview_window.py - fifra-automation-cytiva - Cursor'
+[2026-01-15 19:43:28] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-15 19:43:28] [INFO] 
+============================================================
+[2026-01-15 19:43:28] [INFO] STEP 2: Extracting text from preview window
+[2026-01-15 19:43:28] [INFO] ============================================================
+[2026-01-15 19:43:28] [INFO] Attempting to extract window text...
+[2026-01-15 19:43:28] [INFO] Window text (first 500 chars): test_preview_window.py - fifra-automation-cytiva - Cursor
+[2026-01-15 19:43:28] [INFO] Attempting to get text from child elements...
+[2026-01-15 19:43:28] [INFO] Found 2 child element(s)
+[2026-01-15 19:43:28] [INFO]   Child 1 text: Chrome Legacy Window...
+[2026-01-15 19:43:28] [INFO] Combined child text (first 500 chars): Chrome Legacy Window
+[2026-01-15 19:43:28] [INFO] ✓ Successfully extracted text (20 chars)
+[2026-01-15 19:43:28] [INFO] 
+============================================================
+[2026-01-15 19:43:28] [INFO] STEP 3: Finding print button
+[2026-01-15 19:43:28] [INFO] ============================================================
+[2026-01-15 19:43:28] [INFO] Searching for print button...
+[2026-01-15 19:43:28] [INFO] Found 0 button(s) in window
+[2026-01-15 19:43:28] [WARNING] Print button not found by text search
+[2026-01-15 19:43:28] [INFO] You may need to use image recognition or coordinate-based clicking
+[2026-01-15 19:43:28] [WARNING] Print button not found
+[2026-01-15 19:43:28] [INFO] You may need to manually identify the button location
+[2026-01-15 19:43:28] [INFO] 
+[2026-01-15 19:43:46] [INFO] 
+============================================================
+[2026-01-15 19:43:46] [INFO] STEP 5: Closing preview window
+[2026-01-15 19:43:46] [INFO] ============================================================
+[2026-01-15 19:43:46] [INFO] Close button not found, attempting to close window directly...
+[2026-01-15 19:43:46] [INFO] ✓ Window closed directly

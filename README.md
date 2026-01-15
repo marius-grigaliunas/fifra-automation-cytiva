@@ -219,18 +219,7 @@ The TSV files exported from Oracle ERP contain the following key columns:
 7. Add OCR fallback if needed
 8. Test with sample labels
 
-**Current Options:**
-- **Option A (Recommended for MVP)**: Implement semi-automated mode (see "Critical Issues & Blockers" - Solution #4)
-  - Automate navigation and search
-  - User manually handles preview/print/save dialogs
-  - Still provides significant time savings
-  
-- **Option B (Future Research)**: Investigate hybrid automation approach (see "Critical Issues & Blockers" - Solution #1)
-  - Requires Windows automation tools (pywinauto/pyautogui)
-  - Requires window inspection and testing
-  - Higher complexity but enables full automation
 
-**Note**: Label verification (steps 6-8) can still be implemented if labels are manually downloaded or if a workaround solution is implemented.
 
 ### Phase 3: PDF Processing
 

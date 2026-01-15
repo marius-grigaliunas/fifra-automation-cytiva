@@ -17,5 +17,7 @@ PyYAML>=6.0
 # pytesseract>=0.3.10
 # pillow>=10.0.0
 
-# Windows Automation (optional, for download dialogs)
-# pyautogui>=0.9.54
+# Windows Automation (for preview window and dialog automation)
+pywinauto>=0.6.8
+pyautogui>=0.9.54
+Pillow>=10.0.0  # Required by pyautogui for image recognition

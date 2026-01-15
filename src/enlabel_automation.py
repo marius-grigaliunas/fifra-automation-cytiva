@@ -1,19 +1,24 @@
 """
 Enlabel automation for production number search.
 Handles login, navigation, and production number search using Selenium.
+Uses Edge in Internet Explorer mode for compatibility with legacy ActiveX components.
 """
 
 import time
 from pathlib import Path
 from typing import Optional
 import pandas as pd
+import os
+import shutil
 
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.ie.options import Options as IEOptions
+from selenium.webdriver.ie.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException, WebDriverException
+from urllib3.exceptions import ProtocolError, MaxRetryError
 
 from src.logger_setup import get_logger
 from src.config_loader import get_config
@@ -40,9 +45,113 @@ class EnlabelAutomation:
         self.timeouts_config = config.get_section('timeouts')
         self.paths_config = config.get_section('paths')
         
-        self.driver: Optional[webdriver.Edge] = None
+        self.driver: Optional[webdriver.Ie] = None
         self.wait: Optional[WebDriverWait] = None
         self._filter_initialized = False
+    
+    def _is_driver_alive(self) -> bool:
+        """
+        Check if the WebDriver connection is still alive.
+        
+        Returns:
+            True if driver is alive and responsive, False otherwise
+        """
+        if self.driver is None:
+            return False
+        try:
+            # Try to get current URL - this will fail if connection is lost
+            _ = self.driver.current_url
+            return True
+        except (WebDriverException, ProtocolError, MaxRetryError, AttributeError, OSError):
+            return False
+    
+    def _ensure_driver_alive(self):
+        """
+        Ensure the WebDriver connection is alive. If not, raise an informative error.
+        
+        Raises:
+            WebDriverException: If driver is not alive
+        """
+        if not self._is_driver_alive():
+            raise WebDriverException(
+                "WebDriver connection lost. The browser may have crashed or closed unexpectedly. "
+                "Please check if Edge is running and try again."
+            )
+    
+    def _clear_browser_data(self, clear_storage: bool = False):
+        """
+        Clear browser cookies, cache, and local storage to ensure a clean state.
+        This prevents Enlabel from restoring previous search filter states.
+        
+        Args:
+            clear_storage: If True, also clear localStorage and sessionStorage (requires being on a page)
+        """
+        if not self.driver:
+            return
+        
+        try:
+            logger.info("Clearing browser cookies and cache...")
+            self._ensure_driver_alive()
+            
+            # Clear all cookies (works from any context)
+            try:
+                self.driver.delete_all_cookies()
+                logger.info("Cookies cleared successfully")
+            except Exception as e:
+                logger.warning(f"Could not clear cookies: {e}")
+            
+            # Clear localStorage and sessionStorage if requested and we're on a page
+            if clear_storage:
+                try:
+                    current_url = self.driver.current_url
+                    # Only clear storage if we're on an actual page (not about:blank)
+                    if current_url and not current_url.startswith("about:"):
+                        self.driver.execute_script("""
+                            try {
+                                localStorage.clear();
+                                sessionStorage.clear();
+                            } catch(e) {
+                                // Storage might not be available in IE mode
+                            }
+                        """)
+                        logger.info("LocalStorage and sessionStorage cleared")
+                except Exception as e:
+                    logger.warning(f"Could not clear storage: {e}")
+            
+            logger.info("Browser data cleared successfully")
+        except Exception as e:
+            logger.warning(f"Error clearing browser data: {e}. Continuing anyway...")
+    
+    def _find_ie_driver_path(self) -> Optional[str]:
+        """
+        Find IEDriverServer.exe in common locations.
+        Checks: drivers/ folder, testing/ folder, PATH environment variable.
+        
+        Returns:
+            Path to IEDriverServer.exe if found, None otherwise
+        """
+        project_root = Path(__file__).parent.parent
+        
+        # Check common locations
+        possible_paths = [
+            project_root / "config" / "IEDriverServer.exe",
+            project_root / "testing" / "IEDriverServer.exe",
+            Path("IEDriverServer.exe"),  # Current directory
+        ]
+        
+        for path in possible_paths:
+            if path.exists():
+                logger.info(f"Found IEDriverServer.exe at: {path}")
+                return str(path.absolute())
+        
+        # Check if it's in PATH
+        driver_path = shutil.which("IEDriverServer.exe")
+        if driver_path:
+            logger.info(f"Found IEDriverServer.exe in PATH: {driver_path}")
+            return driver_path
+        
+        logger.warning("IEDriverServer.exe not found. Will attempt to use system PATH.")
+        return None
         
     def _wait_ready_and_ajax(self, timeout: int = None):
         """
@@ -51,15 +160,23 @@ class EnlabelAutomation:
         Args:
             timeout: Timeout in seconds (uses config default if None)
         """
+        # Ensure driver is alive before waiting
+        self._ensure_driver_alive()
+        
         if timeout is None:
             timeout = self.timeouts_config.get('ajax_wait', 30)
         
-        w = WebDriverWait(self.driver, timeout)
-        w.until(lambda d: d.execute_script("return document.readyState") == "complete")
         try:
-            w.until(lambda d: d.execute_script("return (window.jQuery ? jQuery.active : 0) === 0"))
-        except Exception:
-            pass  # jQuery not present on all pages
+            w = WebDriverWait(self.driver, timeout)
+            w.until(lambda d: d.execute_script("return document.readyState") == "complete")
+            try:
+                w.until(lambda d: d.execute_script("return (window.jQuery ? jQuery.active : 0) === 0"))
+            except Exception:
+                pass  # jQuery not present on all pages
+        except (WebDriverException, ProtocolError, MaxRetryError, OSError) as e:
+            logger.warning(f"Connection error during wait: {e}")
+            self._ensure_driver_alive()  # This will raise if driver is dead
+            raise
     
     def _switch_into_frame_if_needed(self, locator, probe_timeout: int = 2):
         """
@@ -74,6 +191,7 @@ class EnlabelAutomation:
         Returns:
             True if element found (and context switched if needed), False otherwise
         """
+        self._ensure_driver_alive()
         by, value = locator
         self.driver.switch_to.default_content()
         try:
@@ -95,22 +213,77 @@ class EnlabelAutomation:
         return False
     
     def start_browser(self):
-        """Initialize browser and WebDriver."""
-        logger.info("Starting browser...")
-        options = Options()
+        """
+        Initialize browser and WebDriver in Internet Explorer mode.
+        Uses Edge in IE mode for compatibility with legacy ActiveX components.
+        """
+        logger.info("Starting Edge browser in Internet Explorer mode...")
         
-        browser_config = self.config.get_section('browser')
-        if browser_config.get('headless', False):
-            options.add_argument('--headless')
+        # Configure Internet Explorer options to attach to Edge
+        options = IEOptions()
         
-        self.driver = webdriver.Edge(options=options)
-        self.wait = WebDriverWait(self.driver, self.timeouts_config.get('element_wait', 10))
+        # This is the key method: attach to Edge Chrome instead of IE
+        options.attach_to_edge_chrome = True
         
-        logger.info("Browser started successfully")
+        # Additional IE options that help with compatibility
+        options.ignore_protected_mode_settings = True
+        options.ignore_zoom_level = True
+        options.require_window_focus = False
+        
+        # Clear session data from previous runs (cookies, cache, history)
+        # This prevents Enlabel from restoring previous filter states
+        # Note: ensure_clean_session clears session data without requiring registry changes
+        options.ensure_clean_session = True
+        
+        # Find and configure IEDriverServer
+        driver_path = self._find_ie_driver_path()
+        if driver_path:
+            service = Service(executable_path=driver_path)
+            logger.info(f"Using IEDriverServer at: {driver_path}")
+        else:
+            # Will try to find in PATH
+            service = Service()
+            logger.info("Using IEDriverServer from system PATH")
+        
+        # Create the driver using InternetExplorerDriver
+        # This will launch Edge in IE mode
+        try:
+            self.driver = webdriver.Ie(service=service, options=options)
+            self.wait = WebDriverWait(self.driver, self.timeouts_config.get('element_wait', 10))
+            
+            # Give the browser a moment to fully initialize
+            time.sleep(2)
+            
+            # Verify the driver is responsive
+            if not self._is_driver_alive():
+                raise WebDriverException("Browser started but driver connection is not responsive")
+            
+            # Clear browser data to ensure clean state (no saved filter states)
+            self._clear_browser_data()
+            
+            logger.info("Browser started successfully in IE mode")
+        except Exception as e:
+            logger.error(f"Failed to start browser: {e}")
+            if self.driver:
+                try:
+                    self.driver.quit()
+                except:
+                    pass
+                self.driver = None
+                self.wait = None
+            raise
     
-    def login(self):
-        """Login to Enlabel website."""
+    def login(self, max_retries: int = 3):
+        """
+        Login to Enlabel website.
+        
+        Args:
+            max_retries: Maximum number of retry attempts for connection errors
+        """
         logger.info("Logging in to Enlabel...")
+        
+        # Ensure driver is alive before starting
+        self._ensure_driver_alive()
         
         login_url = self.enlabel_config['login_url']
         username = self.enlabel_config.get('username') or self.config.enlabel_username
@@ -121,34 +294,89 @@ class EnlabelAutomation:
         
         login_locators = self.locators_config['login']
         
-        # Open login page
-        self.driver.get(login_url)
-        time.sleep(1)
-        
-        # Enter username
-        username_field = self.wait.until(
-            EC.presence_of_element_located((By.ID, login_locators['username_field']))
-        )
-        username_field.clear()
-        username_field.send_keys(username)
-        time.sleep(1)
-        
-        # Enter password
-        password_field = self.wait.until(
-            EC.presence_of_element_located((By.ID, login_locators['password_field']))
-        )
-        password_field.clear()
-        password_field.send_keys(password)
-        time.sleep(1)
-        
-        # Click login button
-        login_button = self.wait.until(
-            EC.element_to_be_clickable((By.ID, login_locators['login_button']))
-        )
-        login_button.click()
-        time.sleep(1)
-        
-        logger.info("Login completed")
+        for attempt in range(max_retries):
+            try:
+                # Check driver is still alive before each operation
+                self._ensure_driver_alive()
+                
+                # Open login page
+                logger.info(f"Opening login page (attempt {attempt + 1}/{max_retries})...")
+                self.driver.get(login_url)
+                self._wait_ready_and_ajax()
+                time.sleep(1)
+                
+                # Verify driver is still alive after page load
+                self._ensure_driver_alive()
+                
+                # Enter username
+                logger.info("Waiting for username field...")
+                username_field = self.wait.until(
+                    EC.presence_of_element_located((By.ID, login_locators['username_field']))
+                )
+                username_field.clear()
+                username_field.send_keys(username)
+                time.sleep(1)
+                
+                # Enter password
+                logger.info("Entering password...")
+                password_field = self.wait.until(
+                    EC.presence_of_element_located((By.ID, login_locators['password_field']))
+                )
+                password_field.clear()
+                password_field.send_keys(password)
+                time.sleep(1)
+                
+                # Click login button
+                logger.info("Clicking login button...")
+                login_button = self.wait.until(
+                    EC.element_to_be_clickable((By.ID, login_locators['login_button']))
+                )
+                login_button.click()
+                self._wait_ready_and_ajax()
+                time.sleep(1)
+                
+                logger.info("Login completed")
+                return  # Success, exit retry loop
+                
+            except (WebDriverException, ProtocolError, MaxRetryError, OSError) as e:
+                error_msg = str(e)
+                logger.warning(f"Connection error during login (attempt {attempt + 1}/{max_retries}): {error_msg}")
+                
+                if attempt < max_retries - 1:
+                    # Check if driver is still alive
+                    if not self._is_driver_alive():
+                        logger.warning("Driver connection lost. Attempting to restart browser...")
+                        try:
+                            # Try to restart the browser
+                            if self.driver:
+                                try:
+                                    self.driver.quit()
+                                except:
+                                    pass
+                            self.start_browser()
+                            logger.info("Browser restarted, retrying login...")
+                            time.sleep(2)  # Give browser time to initialize
+                        except Exception as restart_error:
+                            logger.error(f"Failed to restart browser: {restart_error}")
+                            raise WebDriverException(
+                                f"Connection lost and unable to restart browser: {restart_error}"
+                            )
+                    else:
+                        # Driver is alive, just retry the operation
+                        logger.info("Driver is still alive, retrying operation...")
+                        time.sleep(2)
+                else:
+                    # Last attempt failed
+                    logger.error(f"Login failed after {max_retries} attempts: {error_msg}")
+                    raise WebDriverException(
+                        f"Failed to login after {max_retries} attempts. "
+                        f"Last error: {error_msg}. "
+                        f"The browser connection may be unstable. Please check your network connection and try again."
+                    )
+            except Exception as e:
+                # Non-connection errors should be raised immediately
+                logger.error(f"Unexpected error during login: {e}")
+                raise
     
     def _navigate_to_production_search_pane(self):
         """
@@ -158,6 +386,7 @@ class EnlabelAutomation:
         if self._filter_initialized:
             return
         
+        self._ensure_driver_alive()
         logger.info("Navigating to production search pane...")
         
         prod_search_config = self.locators_config['production_search']
@@ -246,6 +475,7 @@ class EnlabelAutomation:
         """
         logger.info(f"Searching for production number with lot: {lot_number}")
         
+        self._ensure_driver_alive()
         prod_search_config = self.locators_config['production_search']
         
         try:
@@ -270,6 +500,7 @@ class EnlabelAutomation:
             )
             find_button.click()
             time.sleep(2)
+            self._wait_ready_and_ajax()
             
             # Extract production number
             production_number_element = WebDriverWait(self.driver, 10).until(
@@ -280,6 +511,11 @@ class EnlabelAutomation:
             logger.info(f"Found production number: {production_number} for lot: {lot_number}")
             return production_number
             
+        except (WebDriverException, ProtocolError, MaxRetryError, OSError) as e:
+            logger.error(f"Connection error while searching for lot {lot_number}: {e}")
+            if not self._is_driver_alive():
+                logger.error("WebDriver connection lost during search. Browser may have crashed.")
+            return None
         except TimeoutException as e:
             logger.error(f"Timeout while searching for lot {lot_number}: {e}")
             return None
@@ -362,10 +598,18 @@ class EnlabelAutomation:
         """Close browser and cleanup."""
         if self.driver:
             logger.info("Closing browser...")
-            self.driver.quit()
-            self.driver = None
-            self.wait = None
-            logger.info("Browser closed")
+            try:
+                # Only try to quit if driver is still alive
+                if self._is_driver_alive():
+                    self.driver.quit()
+                else:
+                    logger.warning("Driver connection already lost, skipping quit()")
+            except Exception as e:
+                logger.warning(f"Error closing browser: {e}")
+            finally:
+                self.driver = None
+                self.wait = None
+                logger.info("Browser closed")
     
     def __enter__(self):
         """Context manager entry."""

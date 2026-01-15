@@ -52,7 +52,7 @@ This document outlines all items that should be investigated and documented at w
   - [ ] How to access labels? - after navigating to the label search URL, must input production order number to production order number input field, click next and observe the results.
     Full search flow -> //*[@id="ctl00_MainContent__txtORDER_NUMBER"] -> enter the production order number -> click next (//*[@id="btnNext2"]) -> at this point there is a table element with multiple rows, first row is the header, after that multiple results, need to find the label that fits the requirements, must have Item number, lot number and EPA number.
     table row xpaths -> 1st row - //*[@id="ctl00_MainContent_gridLabels_ctl00__0"] -> 2nd row - //*[@id="ctl00_MainContent_gridLabels_ctl00__1"] -> 3rd row - //*[@id="ctl00_MainContent_gridLabels_ctl00__2"] and so on. as a human The only way to check if what label is it, must preview it and visually confirm if it meets all the requirements - preview button of the first row - //*[@id="ctl00_MainContent_gridLabels_ctl00_ctl04_btnPreview"] -> preview button of the 2nd row - //*[@id="ctl00_MainContent_gridLabels_ctl00_ctl06_btnPreview"] -> preview button 3rd row - //*[@id="ctl00_MainContent_gridLabels_ctl00_ctl08_btnPreview"]
-    Here the flow brakes, the preview must be opened from IE mode on microsoft edge, activex is needed to load the label, need to test at work if this is the case. 
+    Here the flow brakes, the preview must be opened from IE mode on microsoft edge, activex. The automation breaks as using selenium the preview cannot be opened.
 - [ ] **Label Identification** (CRITICAL):
   - [ ] Take screenshots of label list/page
   - [ ] How are labels displayed? (list, table, thumbnails?)

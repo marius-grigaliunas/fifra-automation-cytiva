@@ -13,17 +13,17 @@ Example:
 import time
 import sys
 import os
-import config 
 from pathlib import Path
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.ie.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException, WebDriverException
-from src.config_loader import get_config
+
 
 # Configuration
 LOGIN_URL = "https://pallprod.enlabel.com/Login.aspx?ReturnUrl=%2f"
@@ -390,29 +390,111 @@ def click_preview_button(driver, wait, result_index, log_file):
         log(log_file, f"Looking for preview button (ID: {preview_button_id})...")
         
         try:
+            # Wait for button to be present and visible
             preview_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.ID, preview_button_id))
+                EC.presence_of_element_located((By.ID, preview_button_id))
             )
             log(log_file, f"Found preview button: {preview_button_id}")
             
-            log(log_file, "Clicking preview button...")
-            try:
-                preview_button.click()
-            except Exception:
-                log(log_file, "Regular click failed, trying JavaScript click...")
-                driver.execute_script("arguments[0].click();", preview_button)
+            # Check if button is visible and enabled
+            is_displayed = preview_button.is_displayed()
+            is_enabled = preview_button.is_enabled()
+            log(log_file, f"Button state: displayed={is_displayed}, enabled={is_enabled}")
+            
+            if not is_displayed:
+                log(log_file, "Button is not visible, scrolling into view...")
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", preview_button)
+                time.sleep(1)
+            
+            # Wait for button to be clickable
+            WebDriverWait(driver, 5).until(
+                EC.element_to_be_clickable((By.ID, preview_button_id))
+            )
+            
+            log(log_file, "Attempting to click preview button...")
+            click_successful = False
+            
+            # Try multiple click methods
+            click_methods = [
+                ("Regular click", lambda: preview_button.click()),
+                ("JavaScript click", lambda: driver.execute_script("arguments[0].click();", preview_button)),
+                ("ActionChains click", lambda: ActionChains(driver).move_to_element(preview_button).click().perform()),
+                ("JavaScript dispatchEvent", lambda: driver.execute_script(
+                    "arguments[0].dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true}));", 
+                    preview_button
+                )),
+            ]
+            
+            for method_name, click_func in click_methods:
+                try:
+                    log(log_file, f"Trying {method_name}...")
+                    click_func()
+                    time.sleep(0.5)  # Brief pause to see if click registered
+                    click_successful = True
+                    log(log_file, f"✓ {method_name} executed without exception")
+                    break
+                except Exception as e:
+                    log(log_file, f"  {method_name} failed: {type(e).__name__}: {str(e)}", "WARNING")
+                    continue
+            
+            if not click_successful:
+                log(log_file, "ERROR: All click methods failed", "ERROR")
+                return False
             
             log(log_file, "Preview button clicked, waiting for preview window to open...")
-            time.sleep(3)  # Give preview window time to open
+            log(log_file, "Note: Preview window is an ActiveX control (separate Windows window), not a browser window")
             
-            # Check if new window opened
+            # Wait longer for ActiveX preview window to open (can take 5-10 seconds)
+            time.sleep(5)
+            
+            # Try to verify preview window opened using pywinauto if available
+            try:
+                from pywinauto import Desktop
+                log(log_file, "Checking for preview window using pywinauto...")
+                desktop = Desktop(backend="win32")
+                windows = desktop.windows()
+                
+                preview_found = False
+                for window in windows:
+                    try:
+                        if not window.is_visible():
+                            continue
+                        title = window.window_text()
+                        class_name = window.class_name()
+                        
+                        # Look for preview window patterns
+                        if any(pattern in title.lower() for pattern in ["preview", "label"]):
+                            log(log_file, f"✓ Found potential preview window:")
+                            log(log_file, f"    Title: '{title}'")
+                            log(log_file, f"    Class: '{class_name}'")
+                            preview_found = True
+                            break
+                    except Exception:
+                        continue
+                
+                if preview_found:
+                    log(log_file, "✓ Preview window detected successfully")
+                else:
+                    log(log_file, "WARNING: Preview window not detected by pywinauto", "WARNING")
+                    log(log_file, "This may be normal if the window takes longer to open or has a different title")
+            except ImportError:
+                log(log_file, "pywinauto not available, skipping preview window verification")
+            except Exception as e:
+                log(log_file, f"Error checking for preview window: {e}", "WARNING")
+            
+            # Check browser window handles (for reference, though preview won't show here)
             window_handles = driver.window_handles
-            log(log_file, f"Current number of windows: {len(window_handles)}")
+            log(log_file, f"Browser window handles: {len(window_handles)}")
             for i, handle in enumerate(window_handles):
                 driver.switch_to.window(handle)
                 log(log_file, f"  Window {i+1}: title='{driver.title}', url='{driver.current_url}'")
             
-            log(log_file, "✓ Preview button clicked successfully")
+            # Switch back to main window
+            if window_handles:
+                driver.switch_to.window(window_handles[0])
+            
+            log(log_file, "✓ Preview button click completed")
+            log(log_file, "Please verify manually if preview window opened")
             return True
             
         except TimeoutException:

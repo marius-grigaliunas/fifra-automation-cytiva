@@ -85,6 +85,7 @@ def find_save_dialog_pywinauto(log_file, timeout=30, debug=False):
         "Save File",
         "Save Picture As",  # Edge browser specific
         "Save Image As",    # Browser specific
+        "Save Print Output As",
         "File Download",    # Browser download dialog
         "Choose File to Save",
     ]

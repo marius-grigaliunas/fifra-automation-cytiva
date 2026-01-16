@@ -13,9 +13,12 @@ pdfplumber>=0.10.0
 # Configuration
 PyYAML>=6.0
 
-# OCR (optional, for label verification fallback)
-# pytesseract>=0.3.10
-# pillow>=10.0.0
+# Image processing (for preview window automation - optional, uses coordinate fallback if not available)
+opencv-python>=4.8.0  # Optional: for button region detection
+numpy>=1.24.0  # Required by opencv-python
+
+# OCR (for label verification fallback - optional)
+# pytesseract>=0.3.10  # Requires Tesseract OCR binary installed on system
 
 # Windows Automation (for preview window and dialog automation)
 pywinauto>=0.6.8

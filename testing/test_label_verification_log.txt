@@ -1,0 +1,202 @@
+[2026-01-16 21:36:50] [INFO] ============================================================
+[2026-01-16 21:36:50] [INFO] Label Verification Test Script
+[2026-01-16 21:36:50] [INFO] ============================================================
+[2026-01-16 21:36:50] [INFO] Test started at: 2026-01-16 21:36:50
+[2026-01-16 21:36:50] [INFO] 
+[2026-01-16 21:36:50] [INFO] Configuring Tesseract path...
+[2026-01-16 21:36:50] [INFO] Found Tesseract at: C:\Projects\fifra-automation-cytiva\config\tesseract.exe
+[2026-01-16 21:36:50] [INFO] Configured pytesseract to use: C:\Projects\fifra-automation-cytiva\config\tesseract.exe
+[2026-01-16 21:36:50] [INFO] Item number to verify: '7005235'
+[2026-01-16 21:36:50] [INFO] Lot number to verify: '900100796'
+[2026-01-16 21:36:50] [INFO] 
+[2026-01-16 21:36:50] [INFO] IMPORTANT: This test assumes a preview window is already open.
+[2026-01-16 21:36:50] [INFO] Please ensure a label preview window is open before continuing.
+[2026-01-16 21:36:50] [INFO] 
+[2026-01-16 21:36:51] [INFO] User confirmed preview window is open
+[2026-01-16 21:36:51] [INFO] 
+[2026-01-16 21:36:51] [INFO] 
+============================================================
+[2026-01-16 21:36:51] [INFO] STEP 1: Finding preview window
+[2026-01-16 21:36:51] [INFO] ============================================================
+[2026-01-16 21:36:51] [INFO] ✓ Found window by class pattern 'Chrome_WidgetWin_1':
+[2026-01-16 21:36:51] [INFO]     Title: 'enLabel Global Services - Work - Microsoft​ Edge'
+[2026-01-16 21:36:51] [INFO]     Class: 'Chrome_WidgetWin_1'
+[2026-01-16 21:36:51] [INFO] 
+============================================================
+[2026-01-16 21:36:51] [INFO] STEP 2: Extracting text using OCR (screenshot + pytesseract)
+[2026-01-16 21:36:51] [INFO] ============================================================
+[2026-01-16 21:36:51] [INFO] Capturing screenshot of preview window...
+[2026-01-16 21:36:51] [INFO] Screenshot saved to: C:\Projects\fifra-automation-cytiva\testing\label_verification_screenshot_20260116_213651.png
+[2026-01-16 21:36:51] [INFO] Screenshot size: 944x655 pixels
+[2026-01-16 21:36:51] [INFO] Preprocessing image for OCR (optimized single pass)...
+[2026-01-16 21:36:51] [INFO] Processed image saved: C:\Projects\fifra-automation-cytiva\testing\label_verification_processed_20260116_213651.png
+[2026-01-16 21:36:51] [INFO] Extracting text using OCR...
+[2026-01-16 21:36:56] [INFO] ✓ Successfully extracted text using OCR (584 characters)
+[2026-01-16 21:36:56] [INFO] Applied normalization (fixed common OCR errors)
+[2026-01-16 21:36:56] [INFO] Extracted text preview: ' 
+
+- 4) M3 Hips://DaHprud.en\abe\(om/Cu‘Vaberanon/Serv\:eForms/Prev\ewDocumentasp><’\abe\\d:277DZ6S7B<\abe\Name:7005Z3S_DEO1_Box_1 .
+
+ 
+
+1no5zz5_DEm_anx_11nx1o(vn @ 13n%
+
+ﬂ ah; :x\ﬂ~
+
+REF
+
+200
+
+Pall Corporation
+
+SUPRADISC
+7005235
+
+P080S232SP
+
+900100796
+
+LOT
+\|\|HH|H
+
+Qty
+
+1
+
+ 
+
+LT] Manf 202601
+EPAES...' (truncated)
+[2026-01-16 21:36:56] [INFO] Full extracted text:
+[2026-01-16 21:36:56] [INFO] ------------------------------------------------------------
+[2026-01-16 21:36:56] [INFO]  
+
+- 4) M3 Hips://DaHprud.en\abe\(om/Cu‘Vaberanon/Serv\:eForms/Prev\ewDocumentasp><’\abe\\d:277DZ6S7B<\abe\Name:7005Z3S_DEO1_Box_1 .
+
+ 
+
+1no5zz5_DEm_anx_11nx1o(vn @ 13n%
+
+ﬂ ah; :x\ﬂ~
+
+REF
+
+200
+
+Pall Corporation
+
+SUPRADISC
+7005235
+
+P080S232SP
+
+900100796
+
+LOT
+\|\|HH|H
+
+Qty
+
+1
+
+ 
+
+LT] Manf 202601
+EPAESI 102532«DEU-1
+
+M.m.au..a by P-u M.,a.m.m« emu
+a-a «....m.m .5. Fun m..n.m.‘ sin
+m.m sm..x.m Mndemﬁunirv
+
+Furlher mmrmalmn www paH com
+Palenls Paucom/pauems
+
+, Pm! and supmoxsc are
+craaemams 01 P311 corpmaum
+
+9'? CE
+
+nu Hmg
+200P08l
+
+7005235
+rmps://p
+ht|pS'IIp
+htlpsjlp
+rmps://p
+
+ 
+
+ 
+
+
+[2026-01-16 21:36:56] [INFO] ------------------------------------------------------------
+[2026-01-16 21:36:56] [INFO] 
+============================================================
+[2026-01-16 21:36:56] [INFO] STEP 3: Verifying Item Number
+[2026-01-16 21:36:56] [INFO] ============================================================
+[2026-01-16 21:36:56] [INFO] Expected item number: '7005235'
+[2026-01-16 21:36:56] [INFO] ✓ Item number found in text
+[2026-01-16 21:36:56] [INFO]   Context: '...
+
+Pall Corporation
+
+SUPRADISC
+7005235
+
+P080S232SP
+
+900100796
+
+LOT
+\...'
+[2026-01-16 21:36:56] [INFO] 
+============================================================
+[2026-01-16 21:36:56] [INFO] STEP 4: Verifying Lot Number
+[2026-01-16 21:36:56] [INFO] ============================================================
+[2026-01-16 21:36:56] [INFO] Expected lot number: '900100796'
+[2026-01-16 21:36:56] [INFO] ✓ Lot number found in text
+[2026-01-16 21:36:56] [INFO]   Context: '...UPRADISC
+7005235
+
+P080S232SP
+
+900100796
+
+LOT
+\|\|HH|H
+
+Qty
+
+1
+
+ 
+
+LT]...'
+[2026-01-16 21:36:56] [INFO] 
+============================================================
+[2026-01-16 21:36:56] [INFO] STEP 5: Verifying EPA Number
+[2026-01-16 21:36:56] [INFO] ============================================================
+[2026-01-16 21:36:56] [INFO] ✓ 'EPA' found in text
+[2026-01-16 21:36:56] [INFO]   Context: '...H
+
+Qty
+
+1
+
+ 
+
+LT] Manf 202601
+EPAESI 102532«DEU-1
+
+M.m.au..a by P-u M....'
+[2026-01-16 21:36:56] [INFO] 
+============================================================
+[2026-01-16 21:36:56] [INFO] VERIFICATION SUMMARY
+[2026-01-16 21:36:56] [INFO] ============================================================
+[2026-01-16 21:36:56] [INFO] Item Number ('7005235'): ✓ PASS
+[2026-01-16 21:36:56] [INFO] Lot Number ('900100796'): ✓ PASS
+[2026-01-16 21:36:56] [INFO] EPA Number (contains 'EPA'): ✓ PASS
+[2026-01-16 21:36:56] [INFO] 
+[2026-01-16 21:36:56] [INFO] ✓ ALL VERIFICATIONS PASSED - Label is valid
+[2026-01-16 21:36:56] [INFO] ============================================================

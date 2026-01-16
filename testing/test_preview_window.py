@@ -230,11 +230,11 @@ def find_preview_window(log_file, timeout=30):
                 except Exception:
                     continue
             
-            time.sleep(0.5)
+            time.sleep(0.2)
             
         except Exception as e:
             log(log_file, f"Error during search: {e}", "WARNING")
-            time.sleep(0.5)
+            time.sleep(0.2)
     
     log(log_file, f"Preview window not found after {timeout} seconds", "ERROR")
     return None
@@ -451,7 +451,7 @@ def click_at_coordinates(window, button_info, log_file, monitor=None):
     
     try:
         log(log_file, "\n" + "="*60)
-        log(log_file, "STEP 3: Clicking print button at coordinates")
+        log(log_file, "STEP 5: Clicking print button at coordinates")
         log(log_file, "="*60)
         
         # Get window rectangle (screen coordinates)
@@ -476,7 +476,7 @@ def click_at_coordinates(window, button_info, log_file, monitor=None):
         # Focus the window first
         try:
             window.set_focus()
-            time.sleep(0.3)
+            time.sleep(0.1)
         except Exception as e:
             log(log_file, f"Could not focus window: {e}", "WARNING")
         
@@ -484,7 +484,7 @@ def click_at_coordinates(window, button_info, log_file, monitor=None):
         pyautogui.click(absolute_x, absolute_y)
         log(log_file, f"✓ Clicked print button at ({absolute_x}, {absolute_y})")
         
-        time.sleep(2)  # Wait for printer dialog to open
+        time.sleep(1)  # Wait for printer dialog to open
         
         return True
         
@@ -512,11 +512,11 @@ def handle_printer_dialog(log_file):
     
     try:
         log(log_file, "\n" + "="*60)
-        log(log_file, "STEP 4: Handling printer selection dialog")
+        log(log_file, "STEP 6: Handling printer selection dialog")
         log(log_file, "="*60)
         
         # Wait for printer dialog to appear
-        time.sleep(2)
+        time.sleep(1)
         
         # Try to find the printer dialog window using pywinauto
         if PYWINAUTO_AVAILABLE:
@@ -535,25 +535,25 @@ def handle_printer_dialog(log_file):
                     printer_dialog = printer_dialogs[0]
                     log(log_file, f"Found printer dialog: '{printer_dialog.window_text()}'")
                     printer_dialog.set_focus()
-                    time.sleep(0.5)
+                    time.sleep(0.2)
             except Exception as e:
                 log(log_file, f"Could not find printer dialog window: {e}", "WARNING")
                 log(log_file, "Continuing with keyboard navigation...")
         
         # Method 1: Type the printer name directly (often works if combo box is focused)
         log(log_file, "Typing 'Microsoft Print to PDF' to select printer...")
-        pyautogui.typewrite("Microsoft Print to PDF", interval=0.1)
-        time.sleep(1)  # Wait for autocomplete/selection
+        pyautogui.typewrite("Microsoft Print to PDF", interval=0.05)
+        time.sleep(0.5)  # Wait for autocomplete/selection
         
         # Press Enter to confirm the printer selection from dropdown
         pyautogui.press('enter')
-        time.sleep(0.5)
+        time.sleep(0.3)
         
         # Navigate to OK button and press it
         # Windows printer dialogs typically use Alt+O for OK button
         log(log_file, "Pressing Alt+O to click OK button...")
         pyautogui.hotkey('alt', 'o')
-        time.sleep(1)
+        time.sleep(0.5)
         
         # Alternative: If Alt+O didn't work, try Tab to navigate to OK and press Enter
         # But first, try Enter one more time in case OK is already focused
@@ -561,7 +561,7 @@ def handle_printer_dialog(log_file):
         pyautogui.press('enter')
         
         # Wait for dialog to close
-        time.sleep(2)
+        time.sleep(1)
         
         log(log_file, "✓ Printer selection confirmed (dialog should be closed)")
         return True
@@ -573,10 +573,104 @@ def handle_printer_dialog(log_file):
         return False
 
 
+def resize_preview_window(log_file, start_x=850, start_y=827, end_x=1450, end_y=868):
+    """
+    Resize the preview window by dragging the bottom-right corner.
+    
+    Args:
+        log_file: Log file handle
+        start_x: Starting X coordinate (bottom-right corner)
+        start_y: Starting Y coordinate (bottom-right corner)
+        end_x: Ending X coordinate (drag to position)
+        end_y: Ending Y coordinate (drag to position)
+    
+    Returns:
+        bool: True if resize was successful
+    """
+    if not PYAutoGUI_AVAILABLE:
+        log(log_file, "pyautogui not available", "ERROR")
+        return False
+    
+    try:
+        log(log_file, "\n" + "="*60)
+        log(log_file, "STEP 2: Resizing preview window")
+        log(log_file, "="*60)
+        
+        log(log_file, f"Dragging window from bottom-right corner ({start_x}, {start_y}) to ({end_x}, {end_y})")
+        
+        # Drag from starting position to end position
+        # pyautogui.drag() moves relative to current position and holds mouse button
+        # Move to starting position first
+        pyautogui.moveTo(start_x, start_y)
+        time.sleep(0.1)
+        
+        # Drag to end position - drag() handles mouse down/up automatically
+        drag_x = end_x - start_x
+        drag_y = end_y - start_y
+        pyautogui.drag(drag_x, drag_y, duration=0.5, button='left')
+        
+        log(log_file, f"✓ Window resize completed (dragged from ({start_x}, {start_y}) to ({end_x}, {end_y}))")
+        
+        # Wait for window to finish resizing
+        time.sleep(0.5)
+        
+        return True
+        
+    except Exception as e:
+        log(log_file, f"Error resizing window: {type(e).__name__}: {str(e)}", "ERROR")
+        import traceback
+        log(log_file, traceback.format_exc(), "ERROR")
+        return False
+
+
+def click_zoom_in_button(log_file, x=540, y=420, times=3):
+    """
+    Click the zoom in button multiple times.
+    
+    Args:
+        log_file: Log file handle
+        x: X coordinate of zoom in button
+        y: Y coordinate of zoom in button
+        times: Number of times to click the button
+    
+    Returns:
+        bool: True if clicks were successful
+    """
+    if not PYAutoGUI_AVAILABLE:
+        log(log_file, "pyautogui not available", "ERROR")
+        return False
+    
+    try:
+        log(log_file, "\n" + "="*60)
+        log(log_file, f"STEP 3: Clicking zoom in button {times} times")
+        log(log_file, "="*60)
+        
+        log(log_file, f"Zoom in button coordinates: ({x}, {y})")
+        
+        # Click the zoom in button the specified number of times
+        for i in range(times):
+            pyautogui.click(x, y)
+            log(log_file, f"  Click {i+1}/{times} at ({x}, {y})")
+            time.sleep(0.2)  # Wait between clicks (reduced from 0.5)
+        
+        log(log_file, f"✓ Clicked zoom in button {times} times")
+        
+        # Wait for zoom to complete
+        time.sleep(0.3)
+        
+        return True
+        
+    except Exception as e:
+        log(log_file, f"Error clicking zoom in button: {type(e).__name__}: {str(e)}", "ERROR")
+        import traceback
+        log(log_file, traceback.format_exc(), "ERROR")
+        return False
+
+
 def close_preview_window(window, log_file):
     """Close the preview window."""
     log(log_file, "\n" + "="*60)
-    log(log_file, "STEP 5: Closing preview window")
+    log(log_file, "STEP 7: Closing preview window")
     log(log_file, "="*60)
     
     if not window:
@@ -641,14 +735,12 @@ def main():
         log_file.close()
         return
     
-        log(log_file, "IMPORTANT: This script assumes a preview window is already open.")
-        log(log_file, "Please open a label preview window before continuing.")
-        log(log_file, "")
-        log(log_file, "NOTE: This script will click the PRINT button in the enLabel preview.")
-        log(log_file, "The button is in the enLabel application toolbar (below the browser chrome).")
-        log(log_file, "If the button is not found, you may need to adjust DEFAULT_BUTTON_POSITIONS")
-        log(log_file, "in the script based on your preview window layout.")
-        log(log_file, "")
+    log(log_file, "IMPORTANT: This script assumes a preview window is already open.")
+    log(log_file, "Please open a label preview window before continuing.")
+    log(log_file, "")
+    log(log_file, "NOTE: This script will resize the window, zoom in, then click the PRINT button.")
+    log(log_file, "The button is in the enLabel application toolbar (below the browser chrome).")
+    log(log_file, "")
     input("Press Enter when preview window is open...")
     log(log_file, "")
     
@@ -661,28 +753,24 @@ def main():
             log(log_file, "Please ensure a preview window is open and try again", "ERROR")
             return
         
-        # Step 1b: Detect which monitor the window is on
-        monitor = detect_window_monitor(preview_window, log_file)
+        # Step 2: Resize the preview window (skip screenshot/detection - using absolute coordinates)
+        resize_success = resize_preview_window(log_file, start_x=850, start_y=827, end_x=1450, end_y=868)
         
-        # Step 2: Capture screenshot
-        screenshot = capture_window_screenshot(preview_window, log_file, monitor=monitor)
+        if not resize_success:
+            log(log_file, "Failed to resize window", "WARNING")
+            log(log_file, "Continuing anyway...", "WARNING")
         
-        if not screenshot:
-            log(log_file, "Could not capture screenshot", "ERROR")
-            return
+        # Step 3: Click zoom in button 3 times
+        zoom_success = click_zoom_in_button(log_file, x=540, y=420, times=3)
         
-        # Step 2b: Try to detect button regions (optional, uses OpenCV if available)
-        detected_regions = []
-        if CV2_AVAILABLE:
-            log(log_file, "\n" + "="*60)
-            log(log_file, "STEP 2b: Attempting button region detection in enLabel toolbar")
-            log(log_file, "="*60)
-            detected_regions = detect_button_regions_with_opencv(screenshot, log_file)
+        if not zoom_success:
+            log(log_file, "Failed to click zoom in button", "WARNING")
+            log(log_file, "Continuing anyway...", "WARNING")
         
-        # Step 3: Get button coordinates for Print button
+        # Step 4: Get button coordinates for Print button (using absolute coordinates)
         # Note: Only print button exists - no save button in the preview
         button_name = 'print'
-        button_info = get_button_coordinates(preview_window, button_name, log_file, detected_regions)
+        button_info = get_button_coordinates(preview_window, button_name, log_file, detected_regions=None)
         
         if not button_info:
             log(log_file, "Could not determine button coordinates", "ERROR")
@@ -693,21 +781,19 @@ def main():
             log(log_file, "3. Updating DEFAULT_BUTTON_POSITIONS with (x, y) offsets from window top-left")
             return
         
-        # Step 4: Click the print button
-        click_success = click_at_coordinates(preview_window, button_info, log_file, monitor=monitor)
+        # Step 5: Click the print button
+        click_success = click_at_coordinates(preview_window, button_info, log_file, monitor=None)
         
         if not click_success:
             log(log_file, "Failed to click print button", "ERROR")
             return
         
-        # Step 5: Handle printer selection dialog
+        # Step 6: Handle printer selection dialog
         dialog_success = handle_printer_dialog(log_file)
         
         if not dialog_success:
             log(log_file, "Printer dialog handling may have failed", "WARNING")
             log(log_file, "Please verify the printer was selected manually", "WARNING")
-        
-        # Step 6: Close preview window
         log(log_file, "")
         response = input("Do you want to close the preview window? (y/n): ").strip().lower()
         if response == 'y':

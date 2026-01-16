@@ -17,8 +17,8 @@ PyYAML>=6.0
 opencv-python>=4.8.0  # Optional: for button region detection
 numpy>=1.24.0  # Required by opencv-python
 
-# OCR (for label verification fallback - optional)
-# pytesseract>=0.3.10  # Requires Tesseract OCR binary installed on system
+# OCR (for label verification - requires Tesseract OCR binary installed on system)
+pytesseract>=0.3.10  # Python wrapper for Tesseract OCR; requires Tesseract binary: https://github.com/UB-Mannheim/tesseract/wiki
 
 # Windows Automation (for preview window and dialog automation)
 pywinauto>=0.6.8

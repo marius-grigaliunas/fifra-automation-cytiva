@@ -1,0 +1,32 @@
+[2026-01-16 03:56:36] [INFO] ============================================================
+[2026-01-16 03:56:36] [INFO] File Save Dialog Automation Test
+[2026-01-16 03:56:36] [INFO] ============================================================
+[2026-01-16 03:56:36] [INFO] Test started at: 2026-01-16 03:56:36
+[2026-01-16 03:56:36] [INFO] 
+[2026-01-16 03:56:36] [INFO] Target save directory: C:\Projects\fifra-automation-cytiva\testing
+[2026-01-16 03:56:36] [INFO] Target filename: file_save_test
+[2026-01-16 03:56:36] [INFO] Full target path: C:\Projects\fifra-automation-cytiva\testing\file_save_test
+[2026-01-16 03:56:36] [INFO] 
+[2026-01-16 03:56:36] [INFO] IMPORTANT: Please open a file save/download dialog in your browser
+[2026-01-16 03:56:36] [INFO] before continuing. The script will wait up to 30 seconds for the dialog.
+[2026-01-16 03:56:36] [INFO] 
+[2026-01-16 03:56:38] [INFO] 
+[2026-01-16 03:56:38] [INFO] 
+============================================================
+[2026-01-16 03:56:38] [INFO] STEP 1: Finding file save dialog using pywinauto
+[2026-01-16 03:56:38] [INFO] ============================================================
+[2026-01-16 03:56:38] [INFO] ✓ Found dialog by exact title 'Save As':
+[2026-01-16 03:56:38] [INFO]     Title: 'Save As'
+[2026-01-16 03:56:38] [INFO]     Class: '#32770'
+[2026-01-16 03:56:38] [INFO] 
+============================================================
+[2026-01-16 03:56:38] [INFO] STEP 2: Handling dialog using pywinauto
+[2026-01-16 03:56:38] [INFO] ============================================================
+[2026-01-16 03:56:39] [INFO] Trying direct keyboard input...
+[2026-01-16 03:56:40] [INFO] ✓ Pressed Enter to save
+[2026-01-16 03:56:42] [INFO] ✓ File dialog handled successfully using pywinauto
+[2026-01-16 03:56:43] [WARNING] ⚠ File not yet found (may still be saving): C:\Projects\fifra-automation-cytiva\testing\file_save_test
+[2026-01-16 03:56:43] [INFO] 
+[2026-01-16 03:56:43] [INFO] ============================================================
+[2026-01-16 03:56:43] [INFO] Test completed
+[2026-01-16 03:56:43] [INFO] ============================================================
